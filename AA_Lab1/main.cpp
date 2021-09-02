@@ -1,17 +1,46 @@
 #include <iostream>
 #include <vector>
+//#include "getCPUTime.h"
+#include <Windows.h>
 
 using namespace std;
+
+#define ITERATIONS 1000000
 
 size_t LevLen(string src, string dst);
 
 ostream& operator <<(ostream& os, const vector<size_t>& vec);
 
+double getCPUTime()
+{
+    FILETIME createTime;
+    FILETIME exitTime;
+    FILETIME kernelTime;
+    FILETIME userTime;
+    if (GetProcessTimes(GetCurrentProcess(), &createTime, &exitTime, &kernelTime, &userTime) != -1) {
+        ULARGE_INTEGER li = {{userTime.dwLowDateTime, userTime.dwHighDateTime }};
+        return li.QuadPart / 10000000.;
+    }
+    return -1;        /* Failed. */
+}
+
 int main()
 {
     string str1 = "arestant";
     string str2 = "dagestan";
-    size_t rez = LevLen(str1, str2);
+    size_t rez = 0;
+
+    double startTime, endTime;
+
+    startTime = getCPUTime( );
+    for (int i = 0; i <= ITERATIONS; i++)
+        rez = LevLen(str1, str2);
+    endTime = getCPUTime( );
+
+    fprintf( stderr, "CPU time used = %lf\n", (endTime - startTime) );
+    fprintf( stderr, "CPU time of LevLen = %lf\n", (endTime - startTime)/ITERATIONS );
+
+
     cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
 
     return 0;
