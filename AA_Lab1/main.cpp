@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <map>
+//#include <map>
 
 #include <chrono>
 #include <ctime>
@@ -13,7 +13,7 @@ size_t LevLen(string src, string dst);
 
 size_t LevLenRec(string str1, string str2);
 
-typedef map<string, string> cash_t;
+typedef vector<pair<pair<string, string>, size_t>> cash_t;
 
 size_t LevLenRecCash(string str1, string str2, cash_t &cash);
 
@@ -49,21 +49,27 @@ double getCPUTime()
     }
 }
 
-#define ITERATIONS 10
+#define ITERATIONS1 1000
+#define ITERATIONS2 10
+#define ITERATIONS3 100000
 
 int main()
 {
     string str1 = "arestant";
     string str2 = "dagestan";
+    //string str1 = "kot";
+    //string str2 = "skat";
     size_t rez = 0;
 
     //auto t_start = std::chrono::high_resolution_clock::now();
     //clock_t start = clock();
     double startTime = getCPUTime();
 
-    cash_t cash = cash_t();
-    for (int i = 0; i <= ITERATIONS; i++)
+    for (int i = 0; i < ITERATIONS1; i++)
+    {
+        cash_t cash = cash_t();
         rez = LevLenRecCash(str1, str2, cash);
+    }
 
     //auto t_end = std::chrono::high_resolution_clock::now();
     //clock_t end = clock();
@@ -79,8 +85,8 @@ int main()
     //cout << "Clock full time = " << d_res << endl;
     //cout << "Clock time of LevLen = " << d_res/ITERATIONS << endl;
 
-    cout << "CPU time used = " << cpu_time << endl;
-    cout << "CPU time of LevLenRecCash = " << cpu_time/ITERATIONS << endl;
+    //cout << "CPU time used = " << cpu_time << endl;
+    cout << "CPU time of LevLenRecCash = " << cpu_time/ITERATIONS1 << endl;
     //fprintf( stderr, "CPU time used = %lf\n", cpu_time);
     //fprintf( stderr, "CPU time of LevLen = %lf\n", cpu_time/ITERATIONS);
 
@@ -91,16 +97,32 @@ int main()
 
     startTime = getCPUTime();
 
-    for (int i = 0; i <= ITERATIONS; i++)
+    for (int i = 0; i <= ITERATIONS2; i++)
         rez = LevLenRec(str1, str2);
 
     endTime = getCPUTime();
     cpu_time = (endTime - startTime);
 
-    cout << "CPU time used = " << cpu_time << endl;
-    cout << "CPU time of LevLenRec = " << cpu_time/ITERATIONS << endl;
+    //cout << "CPU time used = " << cpu_time << endl;
+    cout << "CPU time of LevLenRec = " << cpu_time/ITERATIONS2 << endl;
 
     cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+
+    cout << endl;
+
+    startTime = getCPUTime();
+
+    for (int i = 0; i <= ITERATIONS3; i++)
+        rez = LevLen(str1, str2);
+
+    endTime = getCPUTime();
+    cpu_time = (endTime - startTime);
+
+    //cout << "CPU time used = " << cpu_time << endl;
+    cout << "CPU time of LevLen = " << cpu_time/ITERATIONS3 << endl;
+
+    cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+
 
     return 0;
 }
@@ -181,16 +203,27 @@ size_t LevLenRec(string str1, string str2)
     }
 }
 
+bool checkCash(string str1, string str2, const cash_t &cash, size_t& rez)
+{
+    for (auto &el : cash)
+    {
+        if (el.first.first == str1 && el.first.second == str2)
+        {
+            rez = el.second;
+            return true;
+        }
+    }
+    return false;
+}
+
 size_t LevLenRecCash(string str1, string str2, cash_t &cash)
 {
-    if (cash[str1] == str2) // FIX
+    size_t len = INT_MAX;
+    if (checkCash(str1, str2, cash, len)) // FIX
     {
-        return INT_MAX;
+        return len;
     }
-    else
-    {
-        cash.insert(make_pair(str1, str2));
-    }
+    //cout << str1 << " " << str2 << endl;
     size_t i = str1.length();
     size_t j = str2.length();
     if (i == 0 && j == 0)
@@ -212,7 +245,10 @@ size_t LevLenRecCash(string str1, string str2, cash_t &cash)
         size_t change = LevLenRecCash(str1.substr(0, i-1), str2.substr(0, j-1), cash);
         if (str1[i-1] != str2[j-1])
             change++;
-        return  min(add, min(del, change));
+
+        size_t rez = min(add, min(del, change));
+        cash.push_back(make_pair(make_pair(str1, str2), rez));
+        return  rez;
     }
 }
 
