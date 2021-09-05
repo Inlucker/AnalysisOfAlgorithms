@@ -17,6 +17,8 @@ typedef vector<pair<pair<string, string>, size_t>> cash_t;
 
 size_t LevLenRecCash(string str1, string str2, cash_t &cash);
 
+size_t DamLevLen(string src, string dst);
+
 ostream& operator <<(ostream& os, const vector<size_t>& vec);
 
 /*double getCPUTime()
@@ -47,6 +49,7 @@ double getCPUTime()
                 (double)userSystemTime.wSecond +
                 (double)userSystemTime.wMilliseconds / 1000.0;
     }
+    return -1;        // Failed.
 }
 
 #define ITERATIONS1 1000
@@ -55,10 +58,10 @@ double getCPUTime()
 
 int main()
 {
-    string str1 = "arestant";
+    string str1 = "arsetant";
     string str2 = "dagestan";
     //string str1 = "kot";
-    //string str2 = "skat";
+    //string str2 = "skto";
     size_t rez = 0;
 
     //auto t_start = std::chrono::high_resolution_clock::now();
@@ -97,7 +100,7 @@ int main()
 
     startTime = getCPUTime();
 
-    for (int i = 0; i <= ITERATIONS2; i++)
+    for (int i = 0; i < ITERATIONS2; i++)
         rez = LevLenRec(str1, str2);
 
     endTime = getCPUTime();
@@ -112,7 +115,7 @@ int main()
 
     startTime = getCPUTime();
 
-    for (int i = 0; i <= ITERATIONS3; i++)
+    for (int i = 0; i < ITERATIONS3; i++)
         rez = LevLen(str1, str2);
 
     endTime = getCPUTime();
@@ -120,6 +123,20 @@ int main()
 
     //cout << "CPU time used = " << cpu_time << endl;
     cout << "CPU time of LevLen = " << cpu_time/ITERATIONS3 << endl;
+
+    cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+    cout << endl;
+
+    startTime = getCPUTime();
+
+    for (int i = 0; i < ITERATIONS3; i++)
+        rez = DamLevLen(str1, str2);
+
+    endTime = getCPUTime();
+    cpu_time = (endTime - startTime);
+
+    //cout << "CPU time used = " << cpu_time << endl;
+    cout << "CPU time of DamLevLen = " << cpu_time/ITERATIONS3 << endl;
 
     cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
 
@@ -250,6 +267,69 @@ size_t LevLenRecCash(string str1, string str2, cash_t &cash)
         cash.push_back(make_pair(make_pair(str1, str2), rez));
         return  rez;
     }
+}
+
+size_t DamLevLen(string src, string dst)
+{
+    if (dst.length() < src.length())
+    {
+        return DamLevLen(dst, src);
+    }
+
+    const size_t min_size = src.length();
+    const size_t max_size = dst.length();
+
+    vector<size_t> row1(min_size+1);
+    for (size_t i = 1; i <= min_size; i++)
+    {
+        row1[i] = i;
+    }
+
+    vector<size_t> row2 = vector<size_t>(min_size+1);
+
+    for (size_t i = 1; i <= max_size; i++)
+    {
+        if (i >= 2)
+        {
+            vector<size_t> row3 = row2;
+            row2 = row1;
+            row1 = vector<size_t>(min_size+1);
+            row1[0] = i;
+            for (size_t j = 1; j <= min_size; j++)
+            {
+                size_t add = row2[j] + 1;
+                size_t del = row1[j-1] + 1;
+                size_t change = row2[j-1];
+                if (src[j-1] != dst[i-1])
+                    change++;
+                row1[j] = min(add, min(del, change));
+
+                if (i > 1 && j > 1 && src[j-1]==dst[i-2] && src[j-2] == dst[i-1])
+                {
+                    //cout << src[j-1] << " == " << dst[i-2] << "; " << src[j-2] << " == " << dst[i-1] << endl;
+                    size_t transposition = row3[j-2] + 1;
+                    row1[j] = min(row1[j], transposition);
+                }
+            }
+        }
+        else
+        {
+            row2 = row1;
+            row1 = vector<size_t>(min_size+1);
+            row1[0] = i;
+            for (size_t j = 1; j <= min_size; j++)
+            {
+                size_t add = row2[j] + 1;
+                size_t del = row1[j-1] + 1;
+                size_t change = row2[j-1];
+                if (src[j-1] != dst[i-1])
+                    change++;
+                row1[j] = min(add, min(del, change));
+            }
+        }
+    }
+
+    return row1[min_size];
 }
 
 ostream& operator <<(ostream& os, const vector<size_t>& vec)
