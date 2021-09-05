@@ -1,15 +1,21 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include <chrono>
 #include <ctime>
 #include <Windows.h>
+#include <limits>
 
 using namespace std;
 
 size_t LevLen(string src, string dst);
 
 size_t LevLenRec(string str1, string str2);
+
+typedef map<string, string> cash_t;
+
+size_t LevLenRecCash(string str1, string str2, cash_t &cash);
 
 ostream& operator <<(ostream& os, const vector<size_t>& vec);
 
@@ -43,7 +49,7 @@ double getCPUTime()
     }
 }
 
-#define ITERATIONS 1
+#define ITERATIONS 10
 
 int main()
 {
@@ -51,32 +57,48 @@ int main()
     string str2 = "dagestan";
     size_t rez = 0;
 
-    auto t_start = std::chrono::high_resolution_clock::now();
-    clock_t start = clock();
+    //auto t_start = std::chrono::high_resolution_clock::now();
+    //clock_t start = clock();
     double startTime = getCPUTime();
+
+    cash_t cash = cash_t();
+    for (int i = 0; i <= ITERATIONS; i++)
+        rez = LevLenRecCash(str1, str2, cash);
+
+    //auto t_end = std::chrono::high_resolution_clock::now();
+    //clock_t end = clock();
+    double endTime = getCPUTime();
+
+    //clock_t res  = (end-start);
+    //double d_res = double(res)/CLOCKS_PER_SEC;
+    double cpu_time = (endTime - startTime);
+
+    //cout << "Chrono full time = " << std::chrono::duration<double, std::milli>(t_end-t_start).count()/CLOCKS_PER_SEC << endl;
+    //cout << "Chrono time of LevLen = " << std::chrono::duration<double, std::milli>(t_end-t_start).count()/CLOCKS_PER_SEC/ITERATIONS << endl;
+
+    //cout << "Clock full time = " << d_res << endl;
+    //cout << "Clock time of LevLen = " << d_res/ITERATIONS << endl;
+
+    cout << "CPU time used = " << cpu_time << endl;
+    cout << "CPU time of LevLenRecCash = " << cpu_time/ITERATIONS << endl;
+    //fprintf( stderr, "CPU time used = %lf\n", cpu_time);
+    //fprintf( stderr, "CPU time of LevLen = %lf\n", cpu_time/ITERATIONS);
+
+
+    cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+
+    cout << endl;
+
+    startTime = getCPUTime();
 
     for (int i = 0; i <= ITERATIONS; i++)
         rez = LevLenRec(str1, str2);
 
-    auto t_end = std::chrono::high_resolution_clock::now();
-    clock_t end = clock();
-    double endTime = getCPUTime();
-
-    clock_t res  = (end-start);
-    double d_res = double(res)/CLOCKS_PER_SEC;
-    double cpu_time = (endTime - startTime);
-
-    cout << "Chrono full time = " << std::chrono::duration<double, std::milli>(t_end-t_start).count()/CLOCKS_PER_SEC << endl;
-    cout << "Chrono time of LevLen = " << std::chrono::duration<double, std::milli>(t_end-t_start).count()/CLOCKS_PER_SEC/ITERATIONS << endl;
-
-    cout << "Clock full time = " << d_res << endl;
-    cout << "Clock time of LevLen = " << d_res/ITERATIONS << endl;
+    endTime = getCPUTime();
+    cpu_time = (endTime - startTime);
 
     cout << "CPU time used = " << cpu_time << endl;
-    cout << "CPU time of LevLen = " << cpu_time/ITERATIONS << endl;
-    //fprintf( stderr, "CPU time used = %lf\n", cpu_time);
-    //fprintf( stderr, "CPU time of LevLen = %lf\n", cpu_time/ITERATIONS);
-
+    cout << "CPU time of LevLenRec = " << cpu_time/ITERATIONS << endl;
 
     cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
 
@@ -153,6 +175,41 @@ size_t LevLenRec(string str1, string str2)
         size_t add = LevLenRec(str1.substr(0, i), str2.substr(0, j-1)) + 1;
         size_t del = LevLenRec(str1.substr(0, i-1), str2.substr(0, j)) + 1;
         size_t change = LevLenRec(str1.substr(0, i-1), str2.substr(0, j-1));
+        if (str1[i-1] != str2[j-1])
+            change++;
+        return  min(add, min(del, change));
+    }
+}
+
+size_t LevLenRecCash(string str1, string str2, cash_t &cash)
+{
+    if (cash[str1] == str2) // FIX
+    {
+        return INT_MAX;
+    }
+    else
+    {
+        cash.insert(make_pair(str1, str2));
+    }
+    size_t i = str1.length();
+    size_t j = str2.length();
+    if (i == 0 && j == 0)
+    {
+        return 0;
+    }
+    else if (i > 0 && j == 0)
+    {
+        return i;
+    }
+    else if (i == 0 && j > 0)
+    {
+        return j;
+    }
+    else
+    {
+        size_t add = LevLenRecCash(str1.substr(0, i), str2.substr(0, j-1), cash) + 1;
+        size_t del = LevLenRecCash(str1.substr(0, i-1), str2.substr(0, j), cash) + 1;
+        size_t change = LevLenRecCash(str1.substr(0, i-1), str2.substr(0, j-1), cash);
         if (str1[i-1] != str2[j-1])
             change++;
         return  min(add, min(del, change));
