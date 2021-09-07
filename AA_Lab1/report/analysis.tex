@@ -22,9 +22,9 @@
 афвалитом, тогда редакционное расстояние (расстояние Левенштейна)
 d(s1, s2) можно подсчитать по следующей рекуррентной формуле:
 $$|x| =\begin{cases}
-	0,\text{если $ i=0 и j=0$;} \\
-	i,\text{если $ i>0 и j=0$;} \\
-	j,\text{если $ i=0 и j>0$;} \\
+	0,\text{если $ i=0, j=0$;} \\
+	i,\text{если $ i>0, j=0$;} \\
+	j,\text{если $ i=0, j>0$;} \\
 	min
 	\left(
 		\begin{matrix}
@@ -52,37 +52,33 @@ $s1[i]=s2[j-1]\wedge s1[i-1]=s2[j]$, то в минимум включается
 Левенштейна) d(s1, s2) можно подсчитать по следующей рекуррентной
 формуле:
 $$|x| =\begin{cases}
-	0,\text{если $ i=0 и j=0$;} \\
-	i,\text{если $ i>0 и j=0$;} \\
-	j,\text{если $ i=0 и j>0$;} \\
+	0,\text{если $ i=0, j=0$;} \\
+	i,\text{если $ i>0, j=0$;} \\
+	j,\text{если $ i=0, j>0$;} \\
 	min
-	\left(
-	\begin{matrix}
+	\left(\begin{matrix}
 		D(s1[1…i],s2[1…j-1])+1 \\
 		D(s1[1…i-1],s2[1…j])+1 \\
 		D(s1[1…i-1],s2[1…j-1]) + 
 		\left[
-			\begin{matrix}
-				0,s1[i]==s2[j] \\
-				1,\text{иначе}
-			\end{matrix}
+		\begin{matrix}
+			0,s1[i]==s2[j] \\
+			1,\text{иначе}
+		\end{matrix}
 		\right] \\
 		D(s1[0...i-2] , s2[0...j-2])+1
-	\end{matrix}
-	\right), \\
+	\end{matrix}\right), \\
 	\text{\qquad если $i>1, j>1, s1[i-1]=s2[j-2], s1[i-2]=s2[j-1]$} \\
 	min
-	\left(
-	\begin{matrix}
+	\left(\begin{matrix}
 		D(s1[1…i],s2[1…j-1])+1 \\
 		D(s1[1…i-1],s2[1…j])+1 \\
 		D(s1[1…i-1],s2[1…j-1]) + 
 		\left[
-			\begin{matrix}
-				0,s1[i]==s2[j] \\
-				1,\text{иначе}
-			\end{matrix}
+		\begin{matrix}
+			0,s1[i]==s2[j] \\
+			1,\text{иначе}
+		\end{matrix}
 		\right]
-	\end{matrix}
-	\right), \text{иначе}
+	\end{matrix}\right), \text{иначе}
 \end{cases}$$
