@@ -1,15 +1,15 @@
 #include "Algorithms.h"
 
 
-size_t LevLen(string src, string dst)
+size_t LevLen(string str1, string str2)
 {
-    if (dst.length() < src.length())
+    if (str2.length() < str1.length())
     {
-        return LevLen(dst, src);
+        return LevLen(str2, str1);
     }
 
-    const size_t min_size = src.length();
-    const size_t max_size = dst.length();
+    const size_t min_size = str1.length();
+    const size_t max_size = str2.length();
 
     /*cout << "   0| ";
     for (size_t i = 0; i < min_size; i++)
@@ -39,7 +39,7 @@ size_t LevLen(string src, string dst)
             size_t add = prev_row[j] + 1;
             size_t del = cur_row[j-1] + 1;
             size_t change = prev_row[j-1];
-            if (src[j-1] != dst[i-1])
+            if (str1[j-1] != str2[i-1])
                 change++;
             cur_row[j] = min(add, min(del, change));
         }

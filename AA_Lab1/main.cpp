@@ -166,7 +166,8 @@ int main()
                 {
                     case 1:
                     {
-                        cout << "ToDo!" << endl;
+                        cout << "Maximum size of LevLen alg is O(min(m, n));" << endl;
+                        //cout << "ToDo!" << endl;
                         break;
                     }
                     case 2:
