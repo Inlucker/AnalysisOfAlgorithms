@@ -22,4 +22,6 @@ size_t DamLevLen(string src, string dst);
 
 size_t DamLevLenRec(string str1, string str2);
 
+ostream& operator <<(ostream& os, const vector<size_t>& vec);
+
 #endif // ALGORITHMS_H

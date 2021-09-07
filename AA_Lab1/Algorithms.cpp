@@ -227,3 +227,24 @@ size_t DamLevLenRec(string str1, string str2)
         return  rez;
     }
 }
+
+ostream& operator <<(ostream& os, const vector<size_t>& vec)
+{
+    if (vec.size() == 0)
+    {
+        os << "vector is empty.";
+        return os;
+    }
+
+    for (auto& el : vec)
+    {
+        os << el << "| ";
+    }
+    cout << endl;
+    /*for (size_t i = 0; i <= vec.size(); i++)
+        os << "-|-";
+    cout << endl;*/
+
+    return os;
+}
+
