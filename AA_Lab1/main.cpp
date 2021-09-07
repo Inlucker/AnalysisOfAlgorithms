@@ -19,6 +19,8 @@ size_t LevLenRecCash(string str1, string str2, cash_t &cash);
 
 size_t DamLevLen(string src, string dst);
 
+size_t DamLevLenRec(string str1, string str2);
+
 ostream& operator <<(ostream& os, const vector<size_t>& vec);
 
 /*double getCPUTime()
@@ -129,14 +131,14 @@ int main()
 
     startTime = getCPUTime();
 
-    for (int i = 0; i < ITERATIONS3; i++)
-        rez = DamLevLen(str1, str2);
+    for (int i = 0; i < ITERATIONS2; i++)
+        rez = DamLevLenRec(str1, str2);
 
     endTime = getCPUTime();
     cpu_time = (endTime - startTime);
 
     //cout << "CPU time used = " << cpu_time << endl;
-    cout << "CPU time of DamLevLen = " << cpu_time/ITERATIONS3 << endl;
+    cout << "CPU time of DamLevLenRec = " << cpu_time/ITERATIONS2 << endl;
 
     cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
 
@@ -330,6 +332,39 @@ size_t DamLevLen(string src, string dst)
     }
 
     return row1[min_size];
+}
+
+size_t DamLevLenRec(string str1, string str2)
+{
+    size_t i = str1.length();
+    size_t j = str2.length();
+    if (i == 0 && j == 0)
+    {
+        return 0;
+    }
+    else if (i > 0 && j == 0)
+    {
+        return i;
+    }
+    else if (i == 0 && j > 0)
+    {
+        return j;
+    }
+    else
+    {
+        size_t add = DamLevLenRec(str1.substr(0, i), str2.substr(0, j-1)) + 1;
+        size_t del = DamLevLenRec(str1.substr(0, i-1), str2.substr(0, j)) + 1;
+        size_t change = DamLevLenRec(str1.substr(0, i-1), str2.substr(0, j-1));
+        if (str1[i-1] != str2[j-1])
+            change++;
+        size_t rez = min(add, min(del, change));
+        if (i > 1 && j > 1 && str1[i-1]==str2[j-2] && str1[i-2] == str2[j-1])
+        {
+            size_t transposition = DamLevLenRec(str1.substr(0, i-2), str2.substr(0, j-2)) + 1;
+            rez = min(rez, transposition);
+        }
+        return  rez;
+    }
 }
 
 ostream& operator <<(ostream& os, const vector<size_t>& vec)
