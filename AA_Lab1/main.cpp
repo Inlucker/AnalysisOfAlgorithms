@@ -9,10 +9,6 @@ using namespace std;
 #include "Algorithms.h"
 #include "tools.h"
 
-#define ITERATIONS_REC_CASH 1000
-#define ITERATIONS_REC 10
-#define ITERATIONS_MATRIX 100000
-
 int main()
 {
     string str1 = "arsetant";
@@ -20,13 +16,10 @@ int main()
     //string str1 = "kot";
     //string str2 = "skto";
 
-    getCPUTimeOfAlg(&LevLenRecCash, str1, str2, ITERATIONS_REC_CASH, "LevLenRecCash");
-
-    getCPUTimeOfAlg(&LevLenRec, str1, str2, ITERATIONS_REC, "LevLenRec");
-
-    getCPUTimeOfAlg(&LevLen, str1, str2, ITERATIONS_MATRIX, "LevLen");
-
-    getCPUTimeOfAlg(&DamLevLenRec, str1, str2, ITERATIONS_REC, "DamLevLenRec");
+    //getCPUTimeOfAlg(&LevLenRecCash, str1, str2, ITERATIONS_REC_CASH, "LevLenRecCash");
+    //getCPUTimeOfAlg(&LevLenRec, str1, str2, ITERATIONS_REC, "LevLenRec");
+    //getCPUTimeOfAlg(&LevLen, str1, str2, ITERATIONS_MATRIX, "LevLen");
+    //getCPUTimeOfAlg(&DamLevLenRec, str1, str2, ITERATIONS_REC, "DamLevLenRec");
 
     int input = -1;
     while (input != 0)
@@ -105,6 +98,7 @@ int main()
                 cout << "2 - LevLenRec:"  << endl;
                 cout << "3 - LevLenRecCash:"  << endl;
                 cout << "4 - DamLevLenRec:"  << endl;
+                cout << "5 - All:"  << endl;
                 cout << "Choose algorithm: ";
                 int alg = -1;
                 cin >> alg;
@@ -113,22 +107,38 @@ int main()
                 {
                     case 1:
                     {
-                        getCPUTimeOfAlg(&LevLen, str1, str2, ITERATIONS_MATRIX, "LevLen");
+                        //getCPUTimeOfAlg(&LevLen, 8, ITERATIONS_MATRIX, "LevLen");
+                        getLevLenTimes();
                         break;
                     }
                     case 2:
                     {
-                        getCPUTimeOfAlg(&LevLenRec, str1, str2, ITERATIONS_REC, "LevLenRec");
+                        //getCPUTimeOfAlg(&LevLenRec, 8, ITERATIONS_REC, "LevLenRec");
+                        getLevLenRecTimes();
                         break;
                     }
                     case 3:
                     {
-                        getCPUTimeOfAlg(&LevLenRecCash, str1, str2, ITERATIONS_REC_CASH, "LevLenRecCash");
+                        //getCPUTimeOfAlg(&LevLenRecCash, 8, ITERATIONS_REC_CASH, "LevLenRecCash");
+                        getLevLenRecCashTimes();
                         break;
                     }
                     case 4:
                     {
-                        getCPUTimeOfAlg(&DamLevLenRec, str1, str2, ITERATIONS_REC, "DamLevLenRec");
+                        //getCPUTimeOfAlg(&DamLevLenRec, 8, ITERATIONS_REC, "DamLevLenRec");
+                        getDamLevLenRecTimes();
+                        break;
+                    }
+                    case 5:
+                    {
+                        /*getCPUTimeOfAlg(&LevLen, 8, ITERATIONS_MATRIX, "LevLen");
+                        getCPUTimeOfAlg(&LevLenRec, 8, ITERATIONS_REC, "LevLenRec");
+                        getCPUTimeOfAlg(&LevLenRecCash, 8, ITERATIONS_REC_CASH, "LevLenRecCash");
+                        getCPUTimeOfAlg(&DamLevLenRec, 8, ITERATIONS_REC, "DamLevLenRec");*/
+                        getLevLenTimes();
+                        getLevLenRecTimes();
+                        getLevLenRecCashTimes();
+                        getDamLevLenRecTimes();
                         break;
                     }
                     default:
@@ -138,6 +148,7 @@ int main()
                     }
                     break;
                 }
+                break;
             }
             case 3:
             {
