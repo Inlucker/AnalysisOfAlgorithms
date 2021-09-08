@@ -8,8 +8,8 @@ size_t LevLen(string str1, string str2)
         return LevLen(str2, str1);
     }
 
-    const size_t min_size = str1.length();
-    const size_t max_size = str2.length();
+        const size_t min_size = str1.length();
+        const size_t max_size = str2.length();
 
     /*cout << "   0| ";
     for (size_t i = 0; i < min_size; i++)
