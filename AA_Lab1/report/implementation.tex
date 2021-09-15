@@ -1,3 +1,167 @@
 \chapter{Технологический раздел}
+\section{Выбор инструментов}
+Язык программирования (c++), среда разработки (QtCreator), библиотеки (windows.h?), valgrind
+
+(как осуществляются замеры скорости и памяти?)
 \section{Реализация алгоритмов}
-Что то
+На листингах , представлены реализации алгоритмов...
+
+\begin{lstlisting}[language=c++, caption=Реализация алгоритма Левенштейна обычным способом]
+size_t LevLen(string str1, string str2)
+{
+	if (str2.length() < str1.length())
+	{
+		return LevLen(str2, str1);
+	}
+	
+	const size_t min_size = str1.length();
+	const size_t max_size = str2.length();
+	
+	vector<size_t> cur_row(min_size+1);
+	for (size_t i = 1; i <= min_size; i++)
+	{
+		cur_row[i] = i;
+	}
+	
+	for (size_t i = 1; i <= max_size; i++)
+	{
+		vector<size_t> prev_row = cur_row;
+		cur_row = vector<size_t>(min_size+1);
+		cur_row[0] = i;
+		for (size_t j = 1; j <= min_size; j++)
+		{
+			size_t add = prev_row[j] + 1;
+			size_t del = cur_row[j-1] + 1;
+			size_t change = prev_row[j-1];
+			if (str1[j-1] != str2[i-1])
+			change++;
+			cur_row[j] = min(add, min(del, change));
+		}
+	}
+	
+	return cur_row[min_size];
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=c++, caption=Реализация алгоритма Левенштейна рекусрсивным способом]
+size_t LevLenRec(string str1, string str2)
+{
+	size_t i = str1.length();
+	size_t j = str2.length();
+	if (i == 0 && j == 0)
+	{
+		return 0;
+	}
+	else if (i > 0 && j == 0)
+	{
+		return i;
+	}
+	else if (i == 0 && j > 0)
+	{
+		return j;
+	}
+	else
+	{
+		size_t add = LevLenRec(str1.substr(0, i), str2.substr(0, j-1)) + 1;
+		size_t del = LevLenRec(str1.substr(0, i-1), str2.substr(0, j)) + 1;
+		size_t change = LevLenRec(str1.substr(0, i-1), str2.substr(0, j-1));
+		if (str1[i-1] != str2[j-1])
+		change++;
+		return  min(add, min(del, change));
+	}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=c++, caption=Реализация алгоритма Левенштейна с рекурсией и кэшированием]
+bool checkCash(string str1, string str2, const cash_t &cash, size_t& rez)
+{
+	for (auto &el : cash)
+	{
+		if (el.first.first == str1 && el.first.second == str2)
+		{
+			rez = el.second;
+			return true;
+		}
+	}
+	return false;
+}
+
+size_t LevLenRecCash(string str1, string str2, cash_t &cash)
+{
+	size_t len = INT_MAX;
+	if (checkCash(str1, str2, cash, len))
+	{
+		return len;
+	}
+	//cout << str1 << " " << str2 << endl;
+	size_t i = str1.length();
+	size_t j = str2.length();
+	if (i == 0 && j == 0)
+	{
+		return 0;
+	}
+	else if (i > 0 && j == 0)
+	{
+		return i;
+	}
+	else if (i == 0 && j > 0)
+	{
+		return j;
+	}
+	else
+	{
+		size_t add = LevLenRecCash(str1.substr(0, i), str2.substr(0, j-1), cash) + 1;
+		size_t del = LevLenRecCash(str1.substr(0, i-1), str2.substr(0, j), cash) + 1;
+		size_t change = LevLenRecCash(str1.substr(0, i-1), str2.substr(0, j-1), cash);
+		if (str1[i-1] != str2[j-1])
+		change++;
+		
+		size_t rez = min(add, min(del, change));
+		cash.push_back(make_pair(make_pair(str1, str2), rez));
+		return  rez;
+	}
+}
+
+size_t LevLenRecCash(string str1, string str2)
+{
+	cash_t cash = cash_t();
+	return LevLenRecCash(str1, str2, cash);
+}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=c++, caption=Реализация алгоритма Дамеру-Левенштейна рекурсивным способом]
+size_t DamLevLenRec(string str1, string str2)
+{
+	size_t i = str1.length();
+	size_t j = str2.length();
+	if (i == 0 && j == 0)
+	{
+		return 0;
+	}
+	else if (i > 0 && j == 0)
+	{
+		return i;
+	}
+	else if (i == 0 && j > 0)
+	{
+		return j;
+	}
+	else
+	{
+		size_t add = DamLevLenRec(str1.substr(0, i), str2.substr(0, j-1)) + 1;
+		size_t del = DamLevLenRec(str1.substr(0, i-1), str2.substr(0, j)) + 1;
+		size_t change = DamLevLenRec(str1.substr(0, i-1), str2.substr(0, j-1));
+		if (str1[i-1] != str2[j-1])
+		change++;
+		size_t rez = min(add, min(del, change));
+		if (i > 1 && j > 1 && str1[i-1]==str2[j-2] && str1[i-2] == str2[j-1])
+		{
+			size_t transposition = DamLevLenRec(str1.substr(0, i-2), str2.substr(0, j-2)) + 1;
+			rez = min(rez, transposition);
+		}
+		return  rez;
+	}
+}
+\end{lstlisting}
