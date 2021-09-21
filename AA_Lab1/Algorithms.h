@@ -12,7 +12,7 @@ size_t LevLen(string src, string dst);
 
 size_t LevLenRec(string str1, string str2);
 
-typedef vector<pair<pair<string, string>, size_t>> cash_t;
+typedef vector<pair<pair<size_t, size_t>, size_t>> cash_t;
 
 size_t LevLenRecCash(string str1, string str2, cash_t &cash);
 

@@ -12,7 +12,7 @@ heap_tree=empty
 #-----------
 snapshot=1
 #-----------
-time=2198311
+time=2197819
 mem_heap_B=72704
 mem_heap_extra_B=8
 mem_stacks_B=0
@@ -20,7 +20,7 @@ heap_tree=empty
 #-----------
 snapshot=2
 #-----------
-time=2314001
+time=2313546
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -28,7 +28,7 @@ heap_tree=empty
 #-----------
 snapshot=3
 #-----------
-time=2314802
+time=2314347
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -36,7 +36,7 @@ heap_tree=empty
 #-----------
 snapshot=4
 #-----------
-time=2315534
+time=2315079
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -44,13 +44,13 @@ heap_tree=empty
 #-----------
 snapshot=5
 #-----------
-time=2316429
+time=2315974
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
 heap_tree=peak
 n2: 72968 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n1: 72704 0x48EFA99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
   n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
    n1: 72704 0x4011C90: call_init (dl-init.c:30)
     n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
@@ -59,7 +59,7 @@ n2: 72968 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=6
 #-----------
-time=2316429
+time=2315974
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -67,7 +67,7 @@ heap_tree=empty
 #-----------
 snapshot=7
 #-----------
-time=2318400
+time=2317945
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -75,7 +75,7 @@ heap_tree=empty
 #-----------
 snapshot=8
 #-----------
-time=2318722
+time=2318267
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -83,7 +83,7 @@ heap_tree=empty
 #-----------
 snapshot=9
 #-----------
-time=2319454
+time=2318999
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -91,7 +91,7 @@ heap_tree=empty
 #-----------
 snapshot=10
 #-----------
-time=2320349
+time=2319894
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -99,7 +99,7 @@ heap_tree=empty
 #-----------
 snapshot=11
 #-----------
-time=2322320
+time=2321865
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -107,7 +107,7 @@ heap_tree=empty
 #-----------
 snapshot=12
 #-----------
-time=2322642
+time=2322187
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -115,7 +115,7 @@ heap_tree=empty
 #-----------
 snapshot=13
 #-----------
-time=2323374
+time=2322919
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -123,7 +123,7 @@ heap_tree=empty
 #-----------
 snapshot=14
 #-----------
-time=2324269
+time=2323814
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -131,13 +131,13 @@ heap_tree=empty
 #-----------
 snapshot=15
 #-----------
-time=2326240
+time=2325785
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
 heap_tree=detailed
 n2: 72792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n1: 72704 0x48EFA99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
   n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
    n1: 72704 0x4011C90: call_init (dl-init.c:30)
     n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
@@ -146,7 +146,7 @@ n2: 72792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=16
 #-----------
-time=2326562
+time=2326107
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -154,7 +154,7 @@ heap_tree=empty
 #-----------
 snapshot=17
 #-----------
-time=2327294
+time=2326839
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -162,7 +162,7 @@ heap_tree=empty
 #-----------
 snapshot=18
 #-----------
-time=2328189
+time=2327734
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -170,7 +170,7 @@ heap_tree=empty
 #-----------
 snapshot=19
 #-----------
-time=2330157
+time=2329702
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -178,7 +178,7 @@ heap_tree=empty
 #-----------
 snapshot=20
 #-----------
-time=2330479
+time=2330024
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -186,7 +186,7 @@ heap_tree=empty
 #-----------
 snapshot=21
 #-----------
-time=2331211
+time=2330756
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -194,7 +194,7 @@ heap_tree=empty
 #-----------
 snapshot=22
 #-----------
-time=2332106
+time=2331651
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -202,7 +202,7 @@ heap_tree=empty
 #-----------
 snapshot=23
 #-----------
-time=2334077
+time=2333622
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -210,7 +210,7 @@ heap_tree=empty
 #-----------
 snapshot=24
 #-----------
-time=2334399
+time=2333944
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -218,13 +218,13 @@ heap_tree=empty
 #-----------
 snapshot=25
 #-----------
-time=2335131
+time=2334676
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
 heap_tree=detailed
 n2: 72968 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n1: 72704 0x48EFA99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
   n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
    n1: 72704 0x4011C90: call_init (dl-init.c:30)
     n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
@@ -233,7 +233,7 @@ n2: 72968 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=26
 #-----------
-time=2336026
+time=2335571
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -241,7 +241,7 @@ heap_tree=empty
 #-----------
 snapshot=27
 #-----------
-time=2337997
+time=2337542
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -249,7 +249,7 @@ heap_tree=empty
 #-----------
 snapshot=28
 #-----------
-time=2338319
+time=2337864
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -257,7 +257,7 @@ heap_tree=empty
 #-----------
 snapshot=29
 #-----------
-time=2339051
+time=2338596
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -265,7 +265,7 @@ heap_tree=empty
 #-----------
 snapshot=30
 #-----------
-time=2339946
+time=2339491
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -273,7 +273,7 @@ heap_tree=empty
 #-----------
 snapshot=31
 #-----------
-time=2341914
+time=2341459
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -281,7 +281,7 @@ heap_tree=empty
 #-----------
 snapshot=32
 #-----------
-time=2342236
+time=2341781
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -289,7 +289,7 @@ heap_tree=empty
 #-----------
 snapshot=33
 #-----------
-time=2342968
+time=2342513
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -297,7 +297,7 @@ heap_tree=empty
 #-----------
 snapshot=34
 #-----------
-time=2343863
+time=2343408
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -305,13 +305,13 @@ heap_tree=empty
 #-----------
 snapshot=35
 #-----------
-time=2345834
+time=2345379
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
 heap_tree=detailed
 n2: 72792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n1: 72704 0x48EFA99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
   n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
    n1: 72704 0x4011C90: call_init (dl-init.c:30)
     n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
@@ -320,7 +320,7 @@ n2: 72792 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=36
 #-----------
-time=2346156
+time=2345701
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -328,7 +328,7 @@ heap_tree=empty
 #-----------
 snapshot=37
 #-----------
-time=2346888
+time=2346433
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -336,7 +336,7 @@ heap_tree=empty
 #-----------
 snapshot=38
 #-----------
-time=2347783
+time=2347328
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -344,7 +344,7 @@ heap_tree=empty
 #-----------
 snapshot=39
 #-----------
-time=2349754
+time=2349299
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -352,7 +352,7 @@ heap_tree=empty
 #-----------
 snapshot=40
 #-----------
-time=2350076
+time=2349621
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -360,7 +360,7 @@ heap_tree=empty
 #-----------
 snapshot=41
 #-----------
-time=2350808
+time=2350353
 mem_heap_B=72968
 mem_heap_extra_B=56
 mem_stacks_B=0
@@ -368,7 +368,7 @@ heap_tree=empty
 #-----------
 snapshot=42
 #-----------
-time=2351703
+time=2351248
 mem_heap_B=72880
 mem_heap_extra_B=40
 mem_stacks_B=0
@@ -376,7 +376,7 @@ heap_tree=empty
 #-----------
 snapshot=43
 #-----------
-time=2353674
+time=2353219
 mem_heap_B=72792
 mem_heap_extra_B=24
 mem_stacks_B=0
@@ -384,7 +384,7 @@ heap_tree=empty
 #-----------
 snapshot=44
 #-----------
-time=2353895
+time=2353440
 mem_heap_B=72704
 mem_heap_extra_B=8
 mem_stacks_B=0
@@ -392,7 +392,7 @@ heap_tree=empty
 #-----------
 snapshot=45
 #-----------
-time=2362930
+time=2362434
 mem_heap_B=0
 mem_heap_extra_B=0
 mem_stacks_B=0

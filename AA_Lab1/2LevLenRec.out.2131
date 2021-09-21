@@ -1,5 +1,5 @@
 desc: (none)
-cmd: ./d.out
+cmd: ./b.out
 time_unit: i
 #-----------
 snapshot=0
@@ -12,7 +12,7 @@ heap_tree=empty
 #-----------
 snapshot=1
 #-----------
-time=2195604
+time=2195157
 mem_heap_B=72704
 mem_heap_extra_B=8
 mem_stacks_B=0
@@ -20,13 +20,13 @@ heap_tree=empty
 #-----------
 snapshot=2
 #-----------
-time=2995881538
+time=2943640349
 mem_heap_B=72704
 mem_heap_extra_B=8
 mem_stacks_B=0
 heap_tree=peak
 n1: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
- n1: 72704 0x48EFA99: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
   n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
    n1: 72704 0x4011C90: call_init (dl-init.c:30)
     n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
@@ -34,7 +34,7 @@ n1: 72704 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
 #-----------
 snapshot=3
 #-----------
-time=2995881538
+time=2943640349
 mem_heap_B=0
 mem_heap_extra_B=0
 mem_stacks_B=0

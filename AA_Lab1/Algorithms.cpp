@@ -77,7 +77,7 @@ size_t LevLenRec(string str1, string str2)
     }
 }
 
-bool checkCash(string str1, string str2, const cash_t &cash, size_t& rez)
+bool checkCash(size_t str1, size_t str2, const cash_t &cash, size_t& rez)
 {
     for (auto &el : cash)
     {
@@ -92,14 +92,13 @@ bool checkCash(string str1, string str2, const cash_t &cash, size_t& rez)
 
 size_t LevLenRecCash(string str1, string str2, cash_t &cash)
 {
+    size_t i = str1.length();
+    size_t j = str2.length();
     size_t len = INT_MAX;
-    if (checkCash(str1, str2, cash, len)) // FIX
+    if (checkCash(i, j, cash, len)) // FIX
     {
         return len;
     }
-    //cout << str1 << " " << str2 << endl;
-    size_t i = str1.length();
-    size_t j = str2.length();
     if (i == 0 && j == 0)
     {
         return 0;
@@ -121,7 +120,7 @@ size_t LevLenRecCash(string str1, string str2, cash_t &cash)
             change++;
 
         size_t rez = min(add, min(del, change));
-        cash.push_back(make_pair(make_pair(str1, str2), rez));
+        cash.push_back(make_pair(make_pair(i, j), rez));
         return  rez;
     }
 }

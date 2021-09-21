@@ -89,6 +89,10 @@ void getLevLenRecTimes()
 
 void getLevLenRecCashTimes()
 {
+    getCPUTimeOfAlg(&LevLenRecCash, 6, ITERATIONS_REC_CASH, "LevLenRecCash");
+    getCPUTimeOfAlg(&LevLenRecCash, 7, ITERATIONS_REC_CASH, "LevLenRecCash");
+    getCPUTimeOfAlg(&LevLenRecCash, 8, ITERATIONS_REC_CASH, "LevLenRecCash");
+    getCPUTimeOfAlg(&LevLenRecCash, 9, ITERATIONS_REC_CASH, "LevLenRecCash");
     getCPUTimeOfAlg(&LevLenRecCash, 10, ITERATIONS_REC_CASH, "LevLenRecCash");
     getCPUTimeOfAlg(&LevLenRecCash, 20, ITERATIONS_REC_CASH/10, "LevLenRecCash");
     getCPUTimeOfAlg(&LevLenRecCash, 30, ITERATIONS_REC_CASH/50, "LevLenRecCash");

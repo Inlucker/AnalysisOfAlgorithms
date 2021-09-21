@@ -1,0 +1,302 @@
+desc: (none)
+cmd: ./c.out
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=2200327
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=2329246
+mem_heap_B=72728
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=2331014
+mem_heap_B=72776
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=2331689
+mem_heap_B=72776
+mem_heap_extra_B=32
+mem_stacks_B=0
+heap_tree=detailed
+n2: 72776 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n0: 72 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=5
+#-----------
+time=2331689
+mem_heap_B=72752
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=2333108
+mem_heap_B=72848
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2333948
+mem_heap_B=72800
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=2336537
+mem_heap_B=72992
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=2337707
+mem_heap_B=72896
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=2343298
+mem_heap_B=73280
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=2345128
+mem_heap_B=73088
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=2371930
+mem_heap_B=73856
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=2375080
+mem_heap_B=73856
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n2: 73856 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n1: 1152 0x10AD18: __gnu_cxx::new_allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >::allocate(unsigned long, void const*) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+  n1: 1152 0x10AB84: std::allocator_traits<std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::allocate(std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >&, unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+   n1: 1152 0x10A99B: std::_Vector_base<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_allocate(unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+    n1: 1152 0x10A464: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_realloc_insert<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>*, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > > >, std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+     n1: 1152 0x10A205: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::emplace_back<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+      n1: 1152 0x109F73: std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::push_back(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+       n1: 1152 0x109918: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+        n2: 1152 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+         n1: 768 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+          n2: 768 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+           n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+            n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+             n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+              n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+               n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                 n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                  n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                   n1: 768 0x109A6D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                    n0: 768 0x109B80: main (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 384 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=2375080
+mem_heap_B=73472
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=2483988
+mem_heap_B=75008
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=2489778
+mem_heap_B=75008
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=detailed
+n2: 75008 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n1: 2304 0x10AD18: __gnu_cxx::new_allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >::allocate(unsigned long, void const*) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+  n1: 2304 0x10AB84: std::allocator_traits<std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::allocate(std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >&, unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+   n1: 2304 0x10A99B: std::_Vector_base<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_allocate(unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+    n1: 2304 0x10A464: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_realloc_insert<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>*, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > > >, std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+     n1: 2304 0x10A205: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::emplace_back<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+      n1: 2304 0x109F73: std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::push_back(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+       n1: 2304 0x109918: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+        n2: 2304 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+         n1: 2304 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+          n2: 2304 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+           n1: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+            n2: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+             n1: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+              n2: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+               n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                 n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                  n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                   n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                    n2: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                     n1: 1536 0x109A6D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                      n0: 1536 0x109B80: main (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                     n0: 0 in 1 place, below massif's threshold (1.00%)
+               n0: 0 in 1 place, below massif's threshold (1.00%)
+             n0: 0 in 1 place, below massif's threshold (1.00%)
+           n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+            n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+             n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+              n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+               n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                 n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                  n1: 768 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                   n1: 768 0x109A6D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                    n0: 768 0x109B80: main (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=2489778
+mem_heap_B=74240
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=2830708
+mem_heap_B=77312
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=2841778
+mem_heap_B=77312
+mem_heap_extra_B=24
+mem_stacks_B=0
+heap_tree=peak
+n2: 77312 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x48EFC19: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B89: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011C90: call_init (dl-init.c:30)
+    n1: 72704 0x4011C90: _dl_init (dl-init.c:119)
+     n0: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+ n1: 4608 0x10AD18: __gnu_cxx::new_allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >::allocate(unsigned long, void const*) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+  n1: 4608 0x10AB84: std::allocator_traits<std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::allocate(std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >&, unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+   n1: 4608 0x10A99B: std::_Vector_base<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_allocate(unsigned long) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+    n1: 4608 0x10A464: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::_M_realloc_insert<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(__gnu_cxx::__normal_iterator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>*, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > > >, std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+     n1: 4608 0x10A205: void std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::emplace_back<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> >(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+      n1: 4608 0x109F73: std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >::push_back(std::pair<std::pair<unsigned long, unsigned long>, unsigned long>&&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+       n1: 4608 0x109918: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+        n2: 4608 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+         n1: 4608 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+          n2: 4608 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+           n1: 4608 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+            n2: 4608 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+             n1: 3072 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+              n1: 3072 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+               n2: 3072 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n1: 3072 0x109A6D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                 n0: 3072 0x109B80: main (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n0: 0 in 1 place, below massif's threshold (1.00%)
+             n1: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+              n2: 1536 0x10977D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+               n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                 n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                  n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                   n1: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                    n2: 1536 0x1096F8: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::vector<std::pair<std::pair<unsigned long, unsigned long>, unsigned long>, std::allocator<std::pair<std::pair<unsigned long, unsigned long>, unsigned long> > >&) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                     n1: 1536 0x109A6D: LevLenRecCash(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                      n0: 1536 0x109B80: main (in /mnt/d/GitRepositoryes/AnalysisOfAlgorithms/AA_Lab1/c.out)
+                     n0: 0 in 1 place, below massif's threshold (1.00%)
+               n0: 0 in 1 place, below massif's threshold (1.00%)
+           n0: 0 in 1 place, below massif's threshold (1.00%)
+         n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=20
+#-----------
+time=2841778
+mem_heap_B=75776
+mem_heap_extra_B=16
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=3407571
+mem_heap_B=72704
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=3416565
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

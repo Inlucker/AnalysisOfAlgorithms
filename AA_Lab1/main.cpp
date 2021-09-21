@@ -46,15 +46,19 @@ int main()
             case 1:
             {
                 cout << "Enter str1:"  << endl;
-                cin >> str1;
+                cin.ignore();
+                getline(cin, str1);
+                //cin >> str1;
                 cout << "Enter str2:"  << endl;
-                cin >> str2;
+                getline(cin, str2);
+                //cin >> str2;
                 cout << endl;
                 cout << "Algorithms:"  << endl;
                 cout << "1 - LevLen:"  << endl;
                 cout << "2 - LevLenRec:"  << endl;
                 cout << "3 - LevLenRecCash:"  << endl;
                 cout << "4 - DamLevLenRec:"  << endl;
+                cout << "5 - All:"  << endl;
                 cout << "Choose algorithm: ";
                 int alg = -1;
                 cin >> alg;
@@ -64,21 +68,37 @@ int main()
                     case 1:
                     {
                         rez = LevLen(str1, str2);
+                        cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
                         break;
                     }
                     case 2:
                     {
                         rez = LevLenRec(str1, str2);
+                        cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
                         break;
                     }
                     case 3:
                     {
                         rez = LevLenRecCash(str1, str2);
+                        cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
                         break;
                     }
                     case 4:
                     {
                         rez = DamLevLenRec(str1, str2);
+                        cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+                        break;
+                    }
+                    case 5:
+                    {
+                        rez = LevLen(str1, str2);
+                        cout << "LevLen() between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+                        rez = LevLenRec(str1, str2);
+                        cout << "LevLenRec() between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+                        rez = LevLenRecCash(str1, str2);
+                        cout << "LevLenRecCash() between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
+                        rez = DamLevLenRec(str1, str2);
+                        cout << "DamLevLenRec() between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
                         break;
                     }
                     default:
@@ -87,7 +107,6 @@ int main()
                         break;
                     }
                 }
-                cout << "length between \"" << str1 << "\" and \"" << str2 << "\" = " << rez << endl;
                 break;
             }
             case 2:
