@@ -11,3 +11,6 @@ SOURCES += \
 HEADERS += \
     Algorithms.h \
     tools.h
+
+#QMAKE_CXXFLAGS += -Ofast
+#QMAKE_CXXFLAGS += -O0
