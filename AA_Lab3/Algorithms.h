@@ -8,4 +8,7 @@ int getBubbleSort(int *l, int *r);
 void SelectionSort(int* l, int* r);
 int getSelectionSort(int *l, int *r);
 
+void InsertionSort(int *l, int *r);
+int getInsertionSort(int *l, int *r);
+
 #endif // ALGORITHMS_H

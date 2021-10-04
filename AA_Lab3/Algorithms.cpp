@@ -112,10 +112,43 @@ int getSelectionSort(int *l, int *r)
             rez++; //increment
             rez++; //srav
         }
-        swap(i, ind);
         rez+=3; //swap
+        swap(i, ind);
         rez++; //increment
         rez++; //srav
+    }
+    return rez;
+}
+
+void InsertionSort(int* l, int* r)
+{
+    for (int *i = l + 1; i <= r; i++)
+    {
+        int* j = i;
+        while (j > l && *(j - 1) > *j)
+        {
+            swap((j - 1), j);
+            j--;
+        }
+    }
+}
+
+int getInsertionSort(int* l, int* r)
+{
+    int rez = 3; //init+srav
+    for (int *i = l + 1; i <= r; i++)
+    {
+        rez++; //assigment
+        int* j = i;
+        rez+=3; //srav
+        while (j > l && *(j - 1) > *j)
+        {
+            rez+=4; //swap
+            swap((j - 1), j);
+            j--;
+            rez++; //deccrement
+            rez+=3; //srav
+        }
     }
     return rez;
 }
