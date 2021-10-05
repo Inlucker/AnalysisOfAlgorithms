@@ -5,7 +5,9 @@ CONFIG -= qt
 
 SOURCES += \
         Algorithms.cpp \
-        main.cpp
+        main.cpp \
+        tools.cpp
 
 HEADERS += \
-    Algorithms.h
+    Algorithms.h \
+    tools.h
