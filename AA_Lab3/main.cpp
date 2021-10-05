@@ -41,16 +41,15 @@ int main()
     cout << "InsertionSort:" << endl;
     printMas(tmp, N);
 
+    //Трудоёмкость
     //cout << getBubbleSort(&mas[0], &mas[N-1]) << endl;
     //cout << getBubblesort2(&mas[0], &mas[N]) << endl;
     //cout << getSelectionSort(&mas[0], &mas[N-1]) << endl;
     //cout << getInsertionSort(&mas[0], &mas[N-1]) << endl;
 
-    //InsertionSort(&mas[0], &mas[N-1]);
-
-    //printMas(mas, N);
-
-    //getCPUTimeOfAlg(&BubbleSort, N, 1000000, "BubbleSort");
+    getBubbleSortTimes(&genMasRandom);
+    getSelectionSortTimes(&genMasRandom);
+    getInsertionSortTimes(&genMasRandom);
 
     return 0;
 }
