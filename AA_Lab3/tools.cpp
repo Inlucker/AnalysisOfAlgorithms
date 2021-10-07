@@ -6,23 +6,32 @@ double getCPUTime()
     FILETIME exitTime;
     FILETIME kernelTime;
     FILETIME userTime;
-    if (GetProcessTimes(GetCurrentProcess(), &createTime, &exitTime, &kernelTime, &userTime) != -1) {
-        ULARGE_INTEGER li = {{userTime.dwLowDateTime, userTime.dwHighDateTime }};
-        return li.QuadPart / 10000000.;
+    if ( GetProcessTimes( GetCurrentProcess( ),
+        &createTime, &exitTime, &kernelTime, &userTime ) != -1 )
+    {
+        SYSTEMTIME userSystemTime;
+        if ( FileTimeToSystemTime( &userTime, &userSystemTime ) != -1 )
+            return (double)userSystemTime.wHour * 3600.0 * 1000.0 +
+                (double)userSystemTime.wMinute * 60.0 * 1000.0 +
+                (double)userSystemTime.wSecond * 1000.0 +
+                (double)userSystemTime.wMilliseconds;
     }
     return -1;        // Failed.
 }
 
+#define NS_IN_S  1E9
+
 void getCPUTimeOfAlg(SortPtr alg, GenPtr gen, int size, int iterations, string alg_name)
 {
-    int mas[size];
-    gen(size, mas);
-    double startTime = getCPUTime();
-
+    int mas[iterations][size];
     for (int i = 0; i < iterations; i++)
     {
-        gen(size, mas);
-        alg(&mas[0], &mas[size-1]);
+        gen(size, &mas[i][0]);
+    }
+    double startTime = getCPUTime();
+    for (int i = 0; i < iterations; i++)
+    {
+        alg(&mas[i][0], &mas[i][size-1]);
     }
 
     double endTime = getCPUTime();
@@ -36,7 +45,7 @@ void getBubbleSortTimes(GenPtr gen)
 {
     cout << "CPU time of BubbleSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&BubbleSort, gen, i, 1000000/i, "BubbleSort");
+        getCPUTimeOfAlg(&BubbleSort, gen, i, 100000/i, "BubbleSort");
     cout << endl;
 }
 
@@ -44,7 +53,7 @@ void getSelectionSortTimes(GenPtr gen)
 {
     cout << "CPU time of SelectionSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&SelectionSort, gen, i, 1000000/i, "SelectionSort");
+        getCPUTimeOfAlg(&SelectionSort, gen, i, 100000/i, "SelectionSort");
     cout << endl;
 }
 
@@ -52,7 +61,7 @@ void getInsertionSortTimes(GenPtr gen)
 {
     cout << "CPU time of InsertionSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&InsertionSort, gen, i, 1000000/i, "InsertionSort");
+        getCPUTimeOfAlg(&InsertionSort, gen, i, 100000/i, "InsertionSort");
     cout << endl;
 }
 
