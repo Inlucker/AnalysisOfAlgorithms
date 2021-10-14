@@ -48,8 +48,11 @@ int main()
     //cout << getInsertionSort(&mas[0], &mas[N-1]) << endl;
 
     getBubbleSortTimes(&genMasRandom);
-    getSelectionSortTimes(&genMasRandom);
-    getInsertionSortTimes(&genMasRandom);
+    getBubbleSortTimes(&genMasBest);
+    getBubbleSortTimes(&genMasWorst);
+    //getBubbleSortTimes(&genMasRandom);
+    //getSelectionSortTimes(&genMasRandom);
+    //getInsertionSortTimes(&genMasRandom);
 
     return 0;
 }

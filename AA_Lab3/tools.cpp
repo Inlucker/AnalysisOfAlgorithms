@@ -28,10 +28,13 @@ void getCPUTimeOfAlg(SortPtr alg, GenPtr gen, int size, int iterations, string a
     {
         gen(size, &mas[i][0]);
     }
+    //int mas[size];
+    //gen(size, mas);
     double startTime = getCPUTime();
     for (int i = 0; i < iterations; i++)
     {
         alg(&mas[i][0], &mas[i][size-1]);
+        //alg(&mas[0], &mas[size-1]);
     }
 
     double endTime = getCPUTime();
@@ -45,7 +48,7 @@ void getBubbleSortTimes(GenPtr gen)
 {
     cout << "CPU time of BubbleSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&BubbleSort, gen, i, 100000/i, "BubbleSort");
+        getCPUTimeOfAlg(&BubbleSort, gen, i, 500000/i, "BubbleSort");
     cout << endl;
 }
 
@@ -53,7 +56,7 @@ void getSelectionSortTimes(GenPtr gen)
 {
     cout << "CPU time of SelectionSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&SelectionSort, gen, i, 100000/i, "SelectionSort");
+        getCPUTimeOfAlg(&SelectionSort, gen, i, 500000/i, "SelectionSort");
     cout << endl;
 }
 
@@ -61,7 +64,7 @@ void getInsertionSortTimes(GenPtr gen)
 {
     cout << "CPU time of InsertionSort = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&InsertionSort, gen, i, 100000/i, "InsertionSort");
+        getCPUTimeOfAlg(&InsertionSort, gen, i, 500000/i, "InsertionSort");
     cout << endl;
 }
 
