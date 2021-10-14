@@ -13,14 +13,45 @@ void printMas(const int *mas, int size);
 
 void funcTests()
 {
-    int n = 1;
+    int n = 0;
+    int mas0[0];
+    cout << "mas0 = ";
+    printMas(mas0, 0);
+    BubbleSort(&mas0[0], &mas0[n-1]);
+    cout << "sorted0 by BubbleSort = ";
+    printMas(mas0, 0);
+    bool flag = true;
+    if (flag)
+        cout << "BbubleSort() with mas0 is correct!" << endl;
+    else
+        cout << "BbubleSort() with mas0 is NOT correct!" << endl;
+
+    SelectionSort(&mas0[0], &mas0[n-1]);
+    cout << "sorted0 by BubbleSort = ";
+    printMas(mas0, 0);
+    flag = true;
+    if (flag)
+        cout << "SelectionSort() with mas0 is correct!" << endl;
+    else
+        cout << "SelectionSort() with mas0 is NOT correct!" << endl;
+
+    InsertionSort(&mas0[0], &mas0[n-1]);
+    cout << "sorted0 by BubbleSort = ";
+    printMas(mas0, 0);
+    flag = true;
+    if (flag)
+        cout << "InsertionSort() with mas0 is correct!" << endl;
+    else
+        cout << "InsertionSort() with mas0 is NOT correct!" << endl;
+
+    n = 1;
     int mas1[1] = {10};
     cout << "mas1 = ";
     printMas(mas1, 1);
     BubbleSort(&mas1[0], &mas1[n-1]);
     cout << "sorted1 by BubbleSort = ";
     printMas(mas1, 1);
-    bool flag = true;
+    flag = true;
     if (mas1[0] != 10)
         flag = false;
     if (flag)
