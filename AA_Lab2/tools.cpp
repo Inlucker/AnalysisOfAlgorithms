@@ -42,7 +42,7 @@ void getStandartTimes()
 {
     cout << "CPU time of standartMult() = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&standartMult, i, 1000/i, "standartMult");
+        getCPUTimeOfAlg(&standartMult, i, 10, "standartMult");
     cout << endl;
 }
 
@@ -50,7 +50,7 @@ void getVinogradTimes()
 {
     cout << "CPU time of vinograd() = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&vinograd, i, 1000/i, "vinograd");
+        getCPUTimeOfAlg(&vinograd, i, 10, "vinograd");
     cout << endl;
 }
 
@@ -58,7 +58,7 @@ void getOptimizedVinogradTimes()
 {
     cout << "CPU time of optimizedVinograd() = ";
     for (int i = 100; i <= 1000; i+=100)
-        getCPUTimeOfAlg(&optimizedVinograd, i, 1000/i, "optimizedVinograd");
+        getCPUTimeOfAlg(&optimizedVinograd, i, 10, "optimizedVinograd");
     cout << endl;
 }
 
@@ -66,7 +66,7 @@ void getStandartTimesWorst()
 {
     cout << "CPU time of standartMult() in worst case = ";
     for (int i = 101; i <= 1001; i+=100)
-        getCPUTimeOfAlg(&standartMult, i, 1000/(i-1), "standartMult");
+        getCPUTimeOfAlg(&standartMult, i, 10, "standartMult");
     cout << endl;
 }
 
@@ -74,7 +74,7 @@ void getVinogradTimesWorst()
 {
     cout << "CPU time of vinograd() in worst case = ";
     for (int i = 101; i <= 1001; i+=100)
-        getCPUTimeOfAlg(&vinograd, i, 1000/(i-1), "vinograd");
+        getCPUTimeOfAlg(&vinograd, i, 10, "vinograd");
     cout << endl;
 }
 
@@ -82,7 +82,7 @@ void getOptimizedVinogradTimesWorst()
 {
     cout << "CPU time of optimizedVinograd() in worst case = ";
     for (int i = 101; i <= 1001; i+=100)
-        getCPUTimeOfAlg(&optimizedVinograd, i, 1000/(i-1), "optimizedVinograd");
+        getCPUTimeOfAlg(&optimizedVinograd, i, 10, "optimizedVinograd");
     cout << endl;
 }
 

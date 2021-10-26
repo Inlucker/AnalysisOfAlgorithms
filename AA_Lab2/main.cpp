@@ -9,7 +9,7 @@ void funcTests();
 
 int main()
 {
-    int n = 300;
+    int n = 3;
     mtrx mtrx1, mtrx2, rez;
     mtrxGen(mtrx1, n, n, 5);
     mtrxGen(mtrx2, n, n, 5);
@@ -21,7 +21,6 @@ int main()
     cout << t << endl;
     t = optimizedVinogradCalc(rez, mtrx1, n, n, mtrx2, n, n);
     cout << t << endl;
-
 
     /*int n = 3;
     mtrx mtrx1, mtrx2, rez;
