@@ -245,7 +245,9 @@ int optimizedVinogradCalc(mtrx &rez, mtrx mtrx1, int n1, int m1, mtrx mtrrx2, in
                 t += 3 + 3 + 2 + 3; // [][] += [][-] * [-][]
                 rez[i][j] += mtrx1[i][n2 - 1] * mtrrx2[n2 - 1][j];
             }
+            t += 2;
         }
+        t += 2;
     }
 
     return t;

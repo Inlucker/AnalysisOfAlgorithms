@@ -9,7 +9,7 @@ void funcTests();
 
 int main()
 {
-    int n = 3;
+    int n = 300;
     mtrx mtrx1, mtrx2, rez;
     mtrxGen(mtrx1, n, n, 5);
     mtrxGen(mtrx2, n, n, 5);

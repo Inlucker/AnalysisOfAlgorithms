@@ -99,33 +99,74 @@ int vinogradCalc(mtrx &rez, mtrx mtrx1, int n1, int m1, mtrx mtrx2, int n2, int 
     return t;
 }
 
-int optimized_vinograd(matrix &result, matrix matr1, int n1, int m1, matrix matr2, int n2, int m2) {
+int optimizedVinogradCalc(mtrx &rez, mtrx mtrx1, int n1, int m1, mtrx mtrrx2, int n2, int m2)
+{
+    int t = 1; // check if !=
+    if (m1 != n2)
+        return SIZE_ERROR;
+
     vector<int> mulH(n1, 0);
-    for (int i = 0; i < n1; i++) {
-        for (int j = 0; j < m1 - 1; j += 2) {
-            mulH[i] -= matr1[i][j] * matr1[i][j + 1];
+    t += 2;
+    for (int i = 0; i < n1; i++)
+    {
+        t += 3;
+        for (int j = 0; j < m1 - 1; j += 2)
+        {
+            t += 9; // [] -= [][] * [][+]
+            mulH[i] -= mtrx1[i][j] * mtrx1[i][j + 1];
+            t += 3;
         }
+        t += 2;
     }
+
     vector<int> mulV(n1, 0);
-    for (int i = 0; i < m2; i++) {
-        for (int j = 0; j < n2 - 1; j += 2) {
-            mulV[i] -= matr2[j][i] * matr2[j + 1][i];
+    t += 2;
+    for (int i = 0; i < m2; i++)
+    {
+        t += 3;
+        for (int j = 0; j < n2 - 1; j += 2)
+        {
+            t += 9; // [] -= [][] * [+][]
+            mulV[i] -= mtrrx2[j][i] * mtrrx2[j + 1][i];
+            t += 3;
         }
+        t += 2;
     }
+
+    t += 4;
     bool flag = false;
-    if (n2 % 2 == 1) {
+    if (n2 % 2 == 1)
+    {
+        t += 1;
         flag = true;
     }
-    for (int i = 0; i < n1; i++) {
-        for (int j = 0; j < m2; j++) {
-            result[i][j] = mulH[i] + mulV[j];
-            for (int k = 0; k < n2 - 1; k += 2) {
-                result[i][j] += (matr1[i][k + 1] + matr2[k][j]) * (matr1[i][k] + matr2[k + 1][j]);
+
+    t += 2;
+    for (int i = 0; i < n1; i++)
+    {
+        t += 2;
+        for (int j = 0; j < m2; j++)
+        {
+            t += 6; // [][] = [] + []
+            rez[i][j] = mulH[i] + mulV[j];
+            t += 3;
+            for (int k = 0; k < n2 - 1; k += 2)
+            {
+                t += 3+6+2+6; // [][] += ([][+]+[][]) * ([][]+[+][])
+                rez[i][j] += (mtrx1[i][k + 1] + mtrrx2[k][j]) * (mtrx1[i][k] + mtrrx2[k + 1][j]);
+                t += 3;
             }
-            if (flag) {
-                result[i][j] += matr1[i][n2 - 1] * matr2[n2 - 1][j];
+
+            t += 1;
+            if (flag)
+            {
+                t += 3 + 3 + 2 + 3; // [][] += [][-] * [-][]
+                rez[i][j] += mtrx1[i][n2 - 1] * mtrrx2[n2 - 1][j];
             }
+            t += 2;
         }
+        t += 2;
     }
-    return 0;
+
+    return t;
 }

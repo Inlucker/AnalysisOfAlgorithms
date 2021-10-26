@@ -37,5 +37,31 @@ Fvinograd = 12+14N+6M+19N(K//2)+19M(K//2)+28NM+32NM(K//2)
 
 optimizedVinograd:
 Fпроверки = 1;
-FoptimizedVinograd = Fпроверки + F1 + F2 + F3 + FC
-F1 = 2+N*(3+K//2*(15+4)+2)
+FoptimizedVinograd = Fпроверки + F1 + F2 + FC + F3
+F1 = 2+N*(3+K//2*(9+3)+2)
+F1 = 2+N*(5+12(K//2))
+F1 = 2+5N+12N(K//2)
+
+F2 = 2+5M+12M(K//2)
+
+//k is even
+FC = 4
+//k is odd
+FC = 5
+
+//k is odd
+F3 = 2+N*(2+M*(6+3+K//2*(17+3)+12+2)+2)
+F3 = 2+N*(2+M*(23+20(K//2))+2)
+F3 = 2+N*(4+23M+20M(K//2))
+F3 = 2+4N+23NM+20NM(K//2)
+//k is even
+F3 = 2+N*(2+M*(6+3+K//2*(17+3)+1+2)+2)
+F3 = 2+4N+12NM+20NM(K//2)
+
+FoptimizedVinograd = 1 + (2+5N+12N(K//2)) + (2+5M+12M(K//2)) + FC + F3
+//k is even
+FoptimizedVinograd = 1 + (2+5N+12N(K//2)) + (2+5M+12M(K//2)) + 4 + (2+4N+12NM+20MN(K//2))
+FoptimizedVinograd = 11+9N+5M+12N(K//2)+12M(K//2)+12NM+20MN(K//2)
+//k is odd
+FoptimizedVinograd = 1 + (2+5N+12N(K//2)) + (2+5M+12M(K//2)) + 5 + (2+4N+23NM+20NM(K//2))
+FoptimizedVinograd = 12+9N+5M+12N(K//2)+12M(K//2)+23NM+20MN(K//2)
