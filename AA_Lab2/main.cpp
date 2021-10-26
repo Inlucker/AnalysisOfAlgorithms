@@ -15,6 +15,20 @@ int main()
     mtrxGen(mtrx2, n, n, 5);
     prepare(rez, n, n, n, n);
 
+    int t = standartMultCalc(rez, mtrx1, n, n, mtrx2, n, n);
+    cout << t << endl;
+    t = vinogradCalc(rez, mtrx1, n, n, mtrx2, n, n);
+    cout << t << endl;
+    t = optimizedVinogradCalc(rez, mtrx1, n, n, mtrx2, n, n);
+    cout << t << endl;
+
+
+    /*int n = 3;
+    mtrx mtrx1, mtrx2, rez;
+    mtrxGen(mtrx1, n, n, 5);
+    mtrxGen(mtrx2, n, n, 5);
+    prepare(rez, n, n, n, n);
+
     cout << "Matrix 1:" << endl;
     printMtrx(mtrx1, n, n);
 
@@ -31,9 +45,17 @@ int main()
 
     optimizedVinograd(rez, mtrx1, n, n, mtrx2, n, n);
     cout << "optimizedVinograd Result Matrix:" << endl;
-    printMtrx(rez, n, n);
+    printMtrx(rez, n, n);*/
 
     //funcTests();
+
+    /*getStandartTimes();
+    getVinogradTimes();
+    getOptimizedVinogradTimes();
+
+    getStandartTimesWorst();
+    getVinogradTimesWorst();
+    getOptimizedVinogradTimesWorst();*/
 
     return 0;
 }

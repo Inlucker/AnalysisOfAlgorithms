@@ -1,0 +1,41 @@
+standartMult:
+Fпроверки = 1;
+FstandartMult = 1+2+N*(2+M*(3+2+K*(12+2)+2)+2)
+FstandartMult = 3+N*(2+M*(7+14K)+2)
+FstandartMult = 3+N*(4+7M+14MK)
+FstandartMult = 3+4N+7NM+14NMK
+(N=3; M=3; K=3) => FstandartMult = 3+12+63+378 = 456
+
+vinograd:
+Fпроверки = 1;
+Fvinograd = Fпроверки + F1 + F2 + F3 + FC
+F1 = 2+N*(4+K//2*(15+4)+2)
+F1 = 2+N*(6+19K//2)
+F1 = 2+6N+19N(K//2)
+
+F2 = 2+6M+19M(K//2)
+
+F3 = 2+N*(2+M*(6+4+K//2*(28+4)+2)+2)
+F3 = 2+N*(2+M*(12+32(K//2))+2)
+F3 = 2+N*(4+12M+32M(K//2))
+F3 = 2+4N+12NM+32NM(K//2)
+
+//k is even
+FC = 3 
+//k is odd
+FC = 3 + 2+N*(2+M*(14+2)+2)
+FC = 5+N*(4+16M)
+FC = 5+4N+16NM
+
+Fvinograd = 1 + (2+6N+19N(K//2)) + (2+6M+19M(K//2)) + (2+4N+12NM+32NM(K//2)) + FC
+//K is even
+Fvinograd = 1 + (2+6N+19N(K//2)) + (2+6M+19M(K//2)) + (2+4N+12NM+32NM(K//2)) + 3
+Fvinograd = 10+10N+6M+19N(K//2)+19M(K//2)+12NM+32NM(K//2)
+//K is odd
+Fvinograd = 1 + (2+6N+19N(K//2)) + (2+6M+19M(K//2)) + (2+4N+12NM+32NM(K//2)) + 5+4N+16NM
+Fvinograd = 12+14N+6M+19N(K//2)+19M(K//2)+28NM+32NM(K//2)
+
+optimizedVinograd:
+Fпроверки = 1;
+FoptimizedVinograd = Fпроверки + F1 + F2 + F3 + FC
+F1 = 2+N*(3+K//2*(15+4)+2)
