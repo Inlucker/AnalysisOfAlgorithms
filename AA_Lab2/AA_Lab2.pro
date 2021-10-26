@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        Algorithms.cpp \
+        main.cpp \
+        tools.cpp
+
+HEADERS += \
+    Algorithms.h \
+    tools.h
