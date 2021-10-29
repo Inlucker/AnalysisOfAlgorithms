@@ -15,32 +15,21 @@ ZBufferAlg::ZBufferAlg(int new_width, int new_height)
 
 void ZBufferAlg::execute(TriPolArray &mas)
 {
-    int red = mas.getR();
-    int green = mas.getG();
-    int blue = mas.getB();
-    zbuffer->reset();
-    frame_buffer->reset();
-    for (auto& elem : mas)
-    {
-        for (int i = max(elem.getMinX(), 0.); i < min(elem.getMaxX(), double(height)); i++)
-        {
-            for (int j = max(elem.getMinY(), 0.); j < min(elem.getMaxY(), double(width)); j++)
-            {
-                    if (elem.isInTriangle(i, j))
-                    {
-                        if ((*zbuffer)(i, j) < elem.getZ(i, j))
-                        {
-                            (*zbuffer)(i, j) = elem.getZ(i, j);
-                            //(*frame_buffer)(i, j) = elem.getColor();//elem.getColor(x, y);
-                            //(*frame_buffer)(i, j) = elem.getIntensity();
-                            double intensivity = elem.getIntensity();
-                            (*frame_buffer)(i, j) = QColor(round(red * intensivity), round(green * intensivity), round(blue * intensivity));
-                        }
-                    }
-            }
-        }
-    }
-
+	int red = mas.getR();
+	int green = mas.getG();
+	int blue = mas.getB();
+	zbuffer->reset();
+	frame_buffer->reset();
+	for (auto& elem : mas)
+		for (int i = max(elem.getMinX(), 0.); i < min(elem.getMaxX(), double(height)); i++)
+			for (int j = max(elem.getMinY(), 0.); j < min(elem.getMaxY(), double(width)); j++)
+				if (elem.isInTriangle(i, j))
+					if ((*zbuffer)(i, j) < elem.getZ(i, j))
+					{
+						(*zbuffer)(i, j) = elem.getZ(i, j);
+						double intensivity = elem.getIntensity();
+						(*frame_buffer)(i, j) = QColor(round(red * intensivity), round(green * intensivity), round(blue * intensivity));
+					}
 }
 
 void ZBufferAlg::executeFT(TriPolArray &mas, int first, int last, int red, int green, int blue)
