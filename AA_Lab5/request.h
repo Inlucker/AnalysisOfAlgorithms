@@ -4,8 +4,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
+#include <chrono>
+
+//typedef std::chrono::high_resolution_clock Clock;
 
 using namespace std;
+
+using namespace chrono;
 
 class Request
 {
@@ -17,10 +23,10 @@ public:
     void getLongestPolinom();
 
 public:
-    double start_time1, end_time1;
-    double start_time2, end_time2;
-    double start_time3, end_time3;
-    double processing_time;
+    double push_time1 = -1, pop_time1 = -1;
+    double push_time2 = -1, pop_time2 = -1;
+    double push_time3 = -1, pop_time3 = -1;
+    double processing_time = -1;
 //private:
     string str;
 

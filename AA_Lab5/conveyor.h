@@ -8,7 +8,14 @@
 #include <thread>
 #include <mutex>
 
+#include <chrono>
+#include <Windows.h>
+
 using namespace std;
+
+using namespace chrono;
+
+typedef std::chrono::high_resolution_clock Clock;
 
 #include "request.h"
 
@@ -34,8 +41,8 @@ private:
 
 private:
     mutex m1, m2, m3;
-
     int n;
+    time_point<high_resolution_clock> start_time;
 };
 
 #endif // CONVEYOR_H

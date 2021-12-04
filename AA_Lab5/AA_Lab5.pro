@@ -6,8 +6,10 @@ CONFIG -= qt
 SOURCES += \
         conveyor.cpp \
         main.cpp \
-        request.cpp
+        request.cpp \
+        tools.cpp
 
 HEADERS += \
     conveyor.h \
-    request.h
+    request.h \
+    tools.h

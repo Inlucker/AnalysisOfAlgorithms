@@ -2,6 +2,9 @@
 #include <string.h>
 #include <vector>
 #include <random>
+#include <ctime>
+
+//#include "windows.h"
 
 using namespace std;
 
@@ -50,15 +53,22 @@ vector<string> getPolinoms(vector<string> words)
 
 string getLongestPolinom(vector<string> polinoms)
 {
-    string rez = polinoms[0];
-
-    for (auto& p : polinoms)
+    if (polinoms.size() > 0)
     {
-        if (p.length() > rez.length())
-            rez = p;
-    }
+        string rez = polinoms[0];
 
-    return rez;
+        for (auto& p : polinoms)
+        {
+            if (p.length() > rez.length())
+                rez = p;
+        }
+
+        return rez;
+    }
+    else
+    {
+        return "No polinoms";
+    }
 }
 
 string getRes(string str)
@@ -88,19 +98,46 @@ string genStr(size_t max_words_size, size_t words_number)
     return rez;
 }
 
+#define N 100
+
 int main()
 {
+    srand(time(0));
     cout << "Hello World!" << endl;
 
-    Conveyor c(103);
+    for (int i = 0; i < 200000000; i+=2)
+        i--;
+
     vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < N; i++)
     {
-        requests.push_back(genStr(3, 10));
+        requests.push_back(genStr(300, 1000));
     }
     //vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
-    c.process(requests);
 
+    Conveyor c(requests.size());
+
+    time_point<high_resolution_clock> start = Clock::now();
+    c.process(requests);
+    time_point<high_resolution_clock> end = Clock::now();
+    nanoseconds diff = duration_cast<nanoseconds>(end - start);
+    cout << "Conveyor time:" << endl;
+    cout << diff.count() << " ns\n";
+    cout << diff.count() / 1000000. << " ms\n";
+    cout << diff.count() / 1000000000. << " s\n";
+
+
+    start = Clock::now();
+    //for (int i = 0; i < N; i++)
+        //string tmp_res = getRes(requests[i].str);
+    for (auto& r : requests)
+        string tmp_res = getRes(r.str);
+    end = Clock::now();
+    diff = duration_cast<nanoseconds>(end - start);
+    cout << "Without conveyor time:" << endl;
+    cout << diff.count() << " ns\n";
+    cout << diff.count() / 1000000. << " ms\n";
+    cout << diff.count() / 1000000000. << " s\n";
 
     return 0;
 }
