@@ -68,3 +68,11 @@ void Request::getLongestPolinom()
             longest_polinom = p;
     }
 }
+
+void Request::calculateTimes()
+{
+    queue_time1 = pop_time1 - push_time1;
+    queue_time2 = pop_time2 - push_time2;
+    queue_time3 = pop_time3 - push_time3;
+    own_proc_time = processing_time - push_time1;
+}

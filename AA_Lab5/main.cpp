@@ -105,7 +105,7 @@ string genStr(size_t max_words_size, size_t words_number)
     return rez;
 }
 
-#define N 100
+#define N 10
 
 int main()
 {
@@ -132,6 +132,68 @@ int main()
     cout << diff.count() << " ns\n";
     cout << diff.count() / 1000000. << " ms\n";
     cout << diff.count() / 1000000000. << " s\n";
+    cout << endl;
+
+    vector<Request> res = c.getRes();
+
+    res[0].calculateTimes();
+    double min_queue_time = res[0].queue_time1;
+    double max_queue_time = res[0].queue_time1;
+    double avg_queue_time = 0;
+    int times_n = 0;
+
+    double min_proc_time = res[0].own_proc_time;
+    double max_proc_time = res[0].own_proc_time;
+    double avg_proc_time = 0;
+    int times_n2 = 0;
+
+    printf("|Reqest # | push_time1 |  pop_time1 | push_time2 |  pop_time2 | push_time3 |  pop_time3 |  proc_time |\n");
+    printf("|---------|------------|------------|------------|------------|------------|------------|------------|\n");
+    for (size_t i = 0; i < res.size(); i++)
+    {
+        res[i].calculateTimes();
+        printf("|%8d | %10f | %10f | %10f | %10f | %10f | %10f | %10f |\n",
+               i+1, res[i].push_time1, res[i].pop_time1, res[i].push_time2, res[i].pop_time2, res[i].push_time3, res[i].pop_time3, res[i].processing_time);
+        //min
+        if (res[i].queue_time1 < min_queue_time)
+            min_queue_time = res[i].queue_time1;
+        if (res[i].queue_time2 < min_queue_time)
+            min_queue_time = res[i].queue_time2;
+        if (res[i].queue_time3 < min_queue_time)
+            min_queue_time = res[i].queue_time3;
+
+        if (res[i].own_proc_time < min_proc_time)
+            min_proc_time = res[i].own_proc_time;
+        //max
+        if (res[i].queue_time1 > max_queue_time)
+            max_queue_time = res[i].queue_time1;
+        if (res[i].queue_time2 > max_queue_time)
+            max_queue_time = res[i].queue_time2;
+        if (res[i].queue_time3 > max_queue_time)
+            max_queue_time = res[i].queue_time3;
+
+        if (res[i].own_proc_time > max_proc_time)
+            max_proc_time = res[i].own_proc_time;
+        //avg
+        avg_queue_time += res[i].queue_time1 + res[i].queue_time2 + res[i].queue_time3;
+        times_n += 3;
+
+        avg_proc_time += res[i].own_proc_time;
+        times_n2 ++;
+        //cout << res[i].own_proc_time << endl;
+    }
+    avg_queue_time /= times_n;
+    avg_proc_time /= times_n2;
+    printf("|---------|------------|------------|------------|------------|------------|------------|------------|\n");
+
+    cout << endl;
+    cout << "min_queue_time = " << min_queue_time << endl;
+    cout << "max_queue_time = " << max_queue_time << endl;
+    cout << "avg_queue_time = " << avg_queue_time << endl;
+    cout << "min_proc_time =  " << min_proc_time << endl;
+    cout << "max_proc_time =  " << max_proc_time << endl;
+    cout << "avg_proc_time =  " << avg_proc_time << endl;
+    cout << endl;
 
     start = Clock::now();
     //start = getCPUTime();
@@ -162,6 +224,7 @@ int main()
     cout << diff.count() << " ns\n";
     cout << diff.count() / 1000000. << " ms\n";
     cout << diff.count() / 1000000000. << " s\n";
+    cout << endl;
 
     //ADDED
     /*vector<Request> res;

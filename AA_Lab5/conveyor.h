@@ -29,6 +29,8 @@ public:
     void process(vector<Request> &requests);
     //clock_t process(vector<string> objvec);
 
+    vector<Request> getRes();
+
 private:
     vector<string> getWords(string str);
     vector<string> getPolinoms(vector<string> words);
@@ -47,9 +49,10 @@ private:
     queue<Request> queue3;
 
 private:
-    mutex m1, m2, m3;
+    mutex m1, m2, m3, m4;
     int n;
     time_point<high_resolution_clock> start_time;
+    vector<Request> res;
 
     //ADDED
     /*Timer timer;

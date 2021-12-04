@@ -23,11 +23,19 @@ public:
     void getPolinoms();
     void getLongestPolinom();
 
+    void calculateTimes();
+
 public:
     double push_time1 = -1, pop_time1 = -1;
     double push_time2 = -1, pop_time2 = -1;
     double push_time3 = -1, pop_time3 = -1;
     double processing_time = -1;
+
+    double queue_time1 = -1;
+    double queue_time2 = -1;
+    double queue_time3 = -1;
+
+    double own_proc_time = -1;
 //private:
     string str;
 

@@ -38,6 +38,11 @@ void Conveyor::process(vector<Request> &requests)
     t3.join();
 }
 
+vector<Request> Conveyor::getRes()
+{
+    return res;
+}
+
 /*clock_t Conveyor::process(vector<string> objvec)
 {
     timer.set_size(n);
@@ -228,6 +233,9 @@ void Conveyor::thirdBent()
         cout << "proc_time:  "<< r.processing_time << " s" << endl;
         cout << endl;*/
 
+        m4.lock();
+        res.push_back(r);
+        m4.unlock();
         cur_n ++;
 
     }
