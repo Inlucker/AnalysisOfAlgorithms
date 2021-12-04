@@ -1,4 +1,4 @@
-#include "timer.h"
+/*#include "timer.h"
 
 //using namespace std;
 
@@ -77,3 +77,4 @@ vector<clock_t> Timer::get_proc_time() {
 vector<vector<clock_t>> Timer::get_time_from_start() {
     return time_from_start;
 }
+*/

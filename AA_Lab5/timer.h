@@ -1,6 +1,6 @@
 #ifndef INC_05_TIMER_H
 #define INC_05_TIMER_H
-
+/*
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -43,7 +43,7 @@ private:
     vector<clock_t> max_time;
     vector<double> avg_time;
     vector<clock_t> proc_time;
-};
+};*/
 
 
 #endif //INC_05_TIMER_H

@@ -5,7 +5,9 @@
 #include <ctime>
 
 //#include "windows.h"
+
 #include "conveyor.h"
+//#include "tools.h"
 
 using namespace std;
 
@@ -117,7 +119,10 @@ int main()
     Conveyor c(requests.size());
 
     time_point<high_resolution_clock> start = Clock::now();
+    //double start = getCPUTime();
     c.process(requests);
+    //double end = getCPUTime();
+    //cout << "Conveyor time: " << end - start << " s" << endl;
     time_point<high_resolution_clock> end = Clock::now();
     nanoseconds diff = duration_cast<nanoseconds>(end - start);
     cout << "Conveyor time:" << endl;
@@ -126,6 +131,7 @@ int main()
     cout << diff.count() / 1000000000. << " s\n";
 
     start = Clock::now();
+    //start = getCPUTime();
     //for (int i = 0; i < N; i++)
         //string tmp_res = getRes(requests[i].str);
     for (auto& r : requests)
@@ -138,6 +144,8 @@ int main()
         string longest_polinom = getLongestPolinom(tmp_polinoms);*/
         //string tmp_res = getRes(r.str);
     }
+    //end = getCPUTime();
+    //cout << "Without conveyor time: " << end - start << " s" << endl;
     end = Clock::now();
     diff = duration_cast<nanoseconds>(end - start);
     cout << "Without conveyor time:" << endl;
