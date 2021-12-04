@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string.h>
 #include <vector>
+#include <random>
 
 using namespace std;
 
-vector<string> get_words(string str)
+vector<string> getWords(string str)
 {
     vector<string> rez;
 
@@ -25,7 +26,7 @@ vector<string> get_words(string str)
     return rez;
 }
 
-vector<string> get_polinoms(vector<string> words)
+vector<string> getPolinoms(vector<string> words)
 {
     vector<string> rez;
 
@@ -47,7 +48,7 @@ vector<string> get_polinoms(vector<string> words)
     return rez;
 }
 
-string get_longest_polinom(vector<string> polinoms)
+string getLongestPolinom(vector<string> polinoms)
 {
     string rez = polinoms[0];
 
@@ -60,28 +61,45 @@ string get_longest_polinom(vector<string> polinoms)
     return rez;
 }
 
-string get_res(string str)
+string getRes(string str)
 {
-    return (get_longest_polinom(get_polinoms(get_words(str))));
+    return (getLongestPolinom(getPolinoms(getWords(str))));
 }
 
+#include "conveyor.h"
+
+string genWord(size_t size)
+{
+    string rez = string(size, '0');
+    for (size_t i = 0; i < size; i++)
+    {
+        rez[i] = rand()%26 + 97;
+    }
+    return rez;
+}
+
+string genStr(size_t max_words_size, size_t words_number)
+{
+    string rez = "";
+    for (size_t i = 0; i < words_number; i++)
+    {
+        rez += genWord(rand() % max_words_size + 1) + " ";
+    }
+    return rez;
+}
 
 int main()
 {
     cout << "Hello World!" << endl;
 
-    vector<string> words = get_words("test lol 23323232 s sss ll 233232332 sls sll lls");
-    vector<string> polinoms = get_polinoms(words);
-    string longest_polinom = get_longest_polinom(polinoms);
-
-    for (auto& w:polinoms)
+    Conveyor c(103);
+    vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
+    for (int i = 0; i < 100; i++)
     {
-        cout << w << endl;
+        requests.push_back(genStr(3, 10));
     }
-
-    cout << longest_polinom << endl;
-
-    cout << get_res("test lol 23323232 s sss ll 2332323322 sls sll lls");
+    //vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
+    c.process(requests);
 
 
     return 0;

@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        conveyor.cpp \
+        main.cpp \
+        request.cpp
+
+HEADERS += \
+    conveyor.h \
+    request.h
