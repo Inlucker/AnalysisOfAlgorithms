@@ -11,13 +11,13 @@
 #include <chrono>
 #include <Windows.h>
 
-#include "timer.h"
+//#include "timer.h"
 
 using namespace std;
 
 using namespace chrono;
 
-typedef std::chrono::high_resolution_clock Clock;
+typedef high_resolution_clock Clock;
 
 #include "request.h"
 

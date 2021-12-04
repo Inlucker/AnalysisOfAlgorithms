@@ -6,8 +6,6 @@
 #include <random>
 #include <ctime>
 
-using namespace std;
-
 double getCPUTime();
 
 #endif // TOOLS_H

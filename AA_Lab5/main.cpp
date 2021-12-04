@@ -5,8 +5,11 @@
 #include <ctime>
 
 //#include "windows.h"
+#include "conveyor.h"
 
 using namespace std;
+
+using namespace chrono;
 
 vector<string> getWords(string str)
 {
@@ -76,7 +79,6 @@ string getRes(string str)
     return (getLongestPolinom(getPolinoms(getWords(str))));
 }
 
-#include "conveyor.h"
 
 string genWord(size_t size)
 {
@@ -105,7 +107,7 @@ int main()
     srand(time(0));
     cout << "Hello World!" << endl;
 
-    vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
+    vector<Request> requests;// = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
     for (int i = 0; i < N; i++)
     {
         requests.push_back(genStr(300, 1000));

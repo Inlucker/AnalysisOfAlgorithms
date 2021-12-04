@@ -7,11 +7,11 @@
 #include <ctime>
 #include <chrono>
 
-//typedef std::chrono::high_resolution_clock Clock;
-
 using namespace std;
 
 using namespace chrono;
+
+typedef high_resolution_clock Clock;
 
 class Request
 {

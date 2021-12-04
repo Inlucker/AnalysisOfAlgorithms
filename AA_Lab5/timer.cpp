@@ -1,5 +1,7 @@
 #include "timer.h"
 
+//using namespace std;
+
 void Timer::set_size(int n) {
     waiting_times.resize(n);
     working_times.resize(n);
