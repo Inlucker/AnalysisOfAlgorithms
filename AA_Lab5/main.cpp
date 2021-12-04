@@ -112,7 +112,7 @@ int main()
     vector<Request> requests;// = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
     for (int i = 0; i < N; i++)
     {
-        requests.push_back(genStr(300, 1000));
+        requests.push_back(genStr(3, 10000));
     }
     //vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
 
@@ -134,11 +134,18 @@ int main()
     //start = getCPUTime();
     //for (int i = 0; i < N; i++)
         //string tmp_res = getRes(requests[i].str);
+    //int i = 1;
     for (auto& r : requests)
     {
+        //cout << "Request #" << i++ << ":" << endl;
+        //cout << "startTime: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
         r.getWords();
+        //cout << "getWords: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
         r.getPolinoms();
+        //cout << "getPolinoms:  "<< duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
         r.getLongestPolinom();
+        //cout << "getLongestPolinom: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
+        //cout << endl;
         /*vector<string> tmp_words = getWords(r.str);
         vector<string> tmp_polinoms = getPolinoms(tmp_words);
         string longest_polinom = getLongestPolinom(tmp_polinoms);*/

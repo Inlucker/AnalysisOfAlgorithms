@@ -27,7 +27,7 @@ void Conveyor::process(vector<Request> &requests)
     for (size_t i = 0; i < requests.size(); i++)
     {
         //m1.lock();
-        //requests[i].push_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        requests[i].push_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue1.push(requests[i]);
         //cout << "Pushed " << i+1 << " request into queue1" << endl;
         //m1.unlock();
@@ -140,13 +140,13 @@ void Conveyor::firstBent()
         }
         Request r = queue1.front();
         queue1.pop();
-        //r.pop_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue1" << endl;
         m1.unlock();
         //r.words = getWords(r.str);
         r.getWords();
         m2.lock();
-        //r.push_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.push_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue2.push(r);
         //cout << "Pushed " << cur_n+1 << " request into queue2" << endl;
         m2.unlock();
@@ -170,13 +170,13 @@ void Conveyor::secondBent()
         }
         Request r = queue2.front();
         queue2.pop();
-        //r.pop_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue2" << endl;
         m2.unlock();
         //r.polinoms = getPolinoms(r.words);
         r.getPolinoms();
         m3.lock();
-        //r.push_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.push_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue3.push(r);
         //cout << "Pushed " << cur_n+1 << " request into queue3" << endl;
         m3.unlock();
@@ -200,12 +200,12 @@ void Conveyor::thirdBent()
         }
         Request r = queue3.front();
         queue3.pop();
-        //r.pop_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue3" << endl;
         m3.unlock();
         //r.longest_polinom = getLongestPolinom(r.polinoms);
         r.getLongestPolinom();
-        //r.processing_time = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.processing_time = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Done " << cur_n+1 << " request" << endl;
 
         //debug print
@@ -218,20 +218,8 @@ void Conveyor::thirdBent()
         cout << endl;
         cout << r.longest_polinom << endl;*/
 
-        //cout << "Request #" << cur_n+1 << ":" << endl;
-        /*cout << "push_time1: " << double(r.push_time1) / CLOCKS_PER_SEC << endl;
-        cout << "pop_time1:  "<< double(r.pop_time1) / CLOCKS_PER_SEC << endl;
-        cout << "push_time2: " << double(r.push_time2) / CLOCKS_PER_SEC << endl;
-        cout << "pop_time2:  "<< double(r.pop_time2) / CLOCKS_PER_SEC << endl;
-        cout << "push_time3: " << double(r.push_time3) / CLOCKS_PER_SEC << endl;
-        cout << "pop_time3:  "<< double(r.pop_time3) / CLOCKS_PER_SEC << endl;*/
-        /*cout << "push_time1: " << r.push_time1.count() << endl;
-        cout << "pop_time1:  "<< r.pop_time1.count() << endl;
-        cout << "push_time2: " << r.push_time2.count() << endl;
-        cout << "pop_time2:  "<< r.pop_time2.count() << endl;
-        cout << "push_time3: " << r.push_time3.count() << endl;
-        cout << "pop_time3:  "<< r.pop_time3.count() << endl;*/
-        /*cout << "push_time1: " << r.push_time1 << " s" << endl;
+        /*cout << "Request #" << cur_n+1 << ":" << endl;
+        cout << "push_time1: " << r.push_time1 << " s" << endl;
         cout << "pop_time1:  "<< r.pop_time1 << " s" << endl;
         cout << "push_time2: " << r.push_time2 << " s" << endl;
         cout << "pop_time2:  "<< r.pop_time2 << " s" << endl;
