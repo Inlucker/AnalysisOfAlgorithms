@@ -17,6 +17,7 @@ class Request
 {
 public:
     Request(string _str);
+    //Request(string _str, int _task_num, clock_t _time);
 
     void getWords();
     void getPolinoms();
@@ -34,6 +35,9 @@ public:
     vector<string> polinoms;
     string longest_polinom = "";
 
+    //ADDED
+    /*int task_num;
+    clock_t time;*/
 };
 
 #endif // REQUEST_H

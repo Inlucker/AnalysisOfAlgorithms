@@ -105,9 +105,6 @@ int main()
     srand(time(0));
     cout << "Hello World!" << endl;
 
-    for (int i = 0; i < 200000000; i+=2)
-        i--;
-
     vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
     for (int i = 0; i < N; i++)
     {
@@ -126,18 +123,57 @@ int main()
     cout << diff.count() / 1000000. << " ms\n";
     cout << diff.count() / 1000000000. << " s\n";
 
-
     start = Clock::now();
     //for (int i = 0; i < N; i++)
         //string tmp_res = getRes(requests[i].str);
     for (auto& r : requests)
-        string tmp_res = getRes(r.str);
+    {
+        r.getWords();
+        r.getPolinoms();
+        r.getLongestPolinom();
+        /*vector<string> tmp_words = getWords(r.str);
+        vector<string> tmp_polinoms = getPolinoms(tmp_words);
+        string longest_polinom = getLongestPolinom(tmp_polinoms);*/
+        //string tmp_res = getRes(r.str);
+    }
     end = Clock::now();
     diff = duration_cast<nanoseconds>(end - start);
     cout << "Without conveyor time:" << endl;
     cout << diff.count() << " ns\n";
     cout << diff.count() / 1000000. << " ms\n";
     cout << diff.count() / 1000000000. << " s\n";
+
+    //ADDED
+    /*vector<Request> res;
+    vector<string> objvec;
+    objvec.resize(N);
+
+    for (int i = 0; i < N; i++)
+    {
+        string s = genStr(300, 1000);
+        objvec[i] = (s);
+    }
+
+    Conveyor conv(objvec.size());
+
+    clock_t start_t = conv.process(objvec);
+    clock_t time1 = clock() - start_t;
+
+    start_t = clock();
+
+    for (int i = 0; i < N; i++)
+    {
+        Request cur_obj = Request(objvec[i], i, clock());
+        cur_obj.getWords();
+        cur_obj.getPolinoms();
+        cur_obj.getLongestPolinom();
+        res.push_back(cur_obj);
+    }
+
+    clock_t time2 = clock() - start_t;
+
+    fprintf(stdout, "Time with conveyor: %lf\n", (double) time1 / CLOCKS_PER_SEC);
+    fprintf(stdout, "Time without conveyor: %lf\n", (double) time2 / CLOCKS_PER_SEC);*/
 
     return 0;
 }

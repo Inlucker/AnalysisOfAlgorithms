@@ -7,9 +7,11 @@ SOURCES += \
         conveyor.cpp \
         main.cpp \
         request.cpp \
+        timer.cpp \
         tools.cpp
 
 HEADERS += \
     conveyor.h \
     request.h \
+    timer.h \
     tools.h

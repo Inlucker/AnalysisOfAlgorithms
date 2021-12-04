@@ -5,6 +5,13 @@ Request::Request(string _str)
     str = _str;
 }
 
+/*Request::Request(string str, int task_num, clock_t time)
+{
+    this->str = str;
+    this->task_num = task_num;
+    this->time = time;
+}*/
+
 void Request::getWords()
 {
     string tmp = "";
