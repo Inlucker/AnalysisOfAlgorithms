@@ -15,6 +15,7 @@ using namespace chrono;
 
 vector<string> getWords(string str)
 {
+    Sleep(1);
     vector<string> rez;
 
     string tmp = "";
@@ -36,6 +37,7 @@ vector<string> getWords(string str)
 
 vector<string> getPolinoms(vector<string> words)
 {
+    Sleep(1);
     vector<string> rez;
 
     for (auto& w : words)
@@ -58,6 +60,7 @@ vector<string> getPolinoms(vector<string> words)
 
 string getLongestPolinom(vector<string> polinoms)
 {
+    Sleep(1);
     if (polinoms.size() > 0)
     {
         string rez = polinoms[0];

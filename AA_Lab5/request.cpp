@@ -15,8 +15,11 @@ Request::Request(string _str)
     this->time = time;
 }*/
 
+#include "Windows.h"
+
 void Request::getWords()
 {
+    Sleep(1);
     string tmp = "";
     for (auto& c : str)
     {
@@ -34,6 +37,7 @@ void Request::getWords()
 
 void Request::getPolinoms()
 {
+    Sleep(1);
     for (auto& w : words)
     {
         bool flag = true;
@@ -52,6 +56,7 @@ void Request::getPolinoms()
 
 void Request::getLongestPolinom()
 {
+    Sleep(1);
     if (polinoms.size() > 0)
         longest_polinom = polinoms[0];
     else
