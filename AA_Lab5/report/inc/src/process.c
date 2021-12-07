@@ -12,6 +12,7 @@ void Conveyor::process(vector<Request> &requests)
         requests[i].push_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue1.push(requests[i]);
         m1.unlock();
+        Sleep(10);
     }
 
     t1.join();

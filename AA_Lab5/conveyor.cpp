@@ -31,6 +31,7 @@ void Conveyor::process(vector<Request> &requests)
         queue1.push(requests[i]);
         //cout << "Pushed " << i+1 << " request into queue1" << endl;
         m1.unlock();
+        Sleep(10);
     }
 
     t1.join();

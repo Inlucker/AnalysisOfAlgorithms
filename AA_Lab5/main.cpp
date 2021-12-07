@@ -110,12 +110,12 @@ string genStr(size_t max_words_size, size_t words_number)
 int main()
 {
     srand(time(0));
-    cout << "Hello World!" << endl;
+    //cout << "Hello World!" << endl;
 
     vector<Request> requests;// = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
     for (int i = 0; i < N; i++)
     {
-        requests.push_back(genStr(3, 10000));
+        requests.push_back(genStr(10, 10000));
     }
     //vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
 
@@ -146,6 +146,14 @@ int main()
     double max_proc_time = res[0].own_proc_time;
     double avg_proc_time = 0;
     int times_n2 = 0;
+
+    double avg_proc1_time = 0;
+    double avg_proc2_time = 0;
+    double avg_proc3_time = 0;
+
+    double avg_queue1_time = 0;
+    double avg_queue2_time = 0;
+    double avg_queue3_time = 0;
 
     printf("|Reqest # | push_time1 |  pop_time1 | push_time2 |  pop_time2 | push_time3 |  pop_time3 |  proc_time |\n");
     printf("|---------|------------|------------|------------|------------|------------|------------|------------|\n");
@@ -180,19 +188,43 @@ int main()
 
         avg_proc_time += res[i].own_proc_time;
         times_n2 ++;
+
+        avg_proc1_time += res[i].push_time2 - res[i].pop_time1;
+        avg_proc2_time += res[i].push_time3 - res[i].pop_time2;
+        avg_proc3_time += res[i].processing_time - res[i].pop_time3;
+
+        avg_queue1_time += res[i].queue_time1;
+        avg_queue2_time += res[i].queue_time2;
+        avg_queue3_time += res[i].queue_time3;
+
         //cout << res[i].own_proc_time << endl;
     }
     avg_queue_time /= times_n;
     avg_proc_time /= times_n2;
+    avg_proc1_time /= times_n2;
+    avg_proc2_time /= times_n2;
+    avg_proc3_time /= times_n2;
+    avg_queue1_time /= times_n2;
+    avg_queue2_time /= times_n2;
+    avg_queue3_time /= times_n2;
     printf("|---------|------------|------------|------------|------------|------------|------------|------------|\n");
 
     cout << endl;
     cout << "min_queue_time = " << min_queue_time << endl;
     cout << "max_queue_time = " << max_queue_time << endl;
     cout << "avg_queue_time = " << avg_queue_time << endl;
+    cout << endl;
     cout << "min_proc_time =  " << min_proc_time << endl;
     cout << "max_proc_time =  " << max_proc_time << endl;
     cout << "avg_proc_time =  " << avg_proc_time << endl;
+    cout << endl;
+    cout << "avg_proc1_time =  " << avg_proc1_time << endl;
+    cout << "avg_proc2_time =  " << avg_proc2_time << endl;
+    cout << "avg_proc3_time =  " << avg_proc3_time << endl;
+    cout << endl;
+    cout << "avg_queue1_time =  " << avg_queue1_time << endl;
+    cout << "avg_queue2_time =  " << avg_queue2_time << endl;
+    cout << "avg_queue3_time =  " << avg_queue3_time << endl;
     cout << endl;
 
     start = Clock::now();
