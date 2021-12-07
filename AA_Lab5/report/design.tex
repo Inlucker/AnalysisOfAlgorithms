@@ -1,26 +1,23 @@
 \chapter{Конструкторский раздел}
-В данном разделе представлены схемы алгоритма ZBuffer реализованного стандартным методом, а также с применением параллеленных вычислений.
+В данном разделе представлены схемы алгоритмов главного потока и конвейера.
 
 
 \section{Схемы алгоритмов}
-Ниже представлены схемы следующих алгоритмов:
-\begin{itemize}
-	\item стандартный ZBuffer (рисунок \ref{ZBufferAlg});
-	\item ZBuffer с применением параллеленных вычислений (рисунок \ref{ZBufferWithThreads});
-\end{itemize}
+Схема алгоритма главного потока:
 
 \begin{figure}
-	\center{\includegraphics[width=1\linewidth]{inc/img/ZBufferAlg}}
-	\caption{Схема алгоритма ZBuffer}
+	\center{\includegraphics[width=0.8\linewidth]{inc/img/MainThread}}
+	\caption{Схема алгоритма главного потока}
 	\label{ZBufferAlg}
 \end{figure}
 
+Схема алгоритма конвейера:
 \begin{figure}
-	\center{\includegraphics[width=0.58\linewidth]{inc/img/ZBufferWithThreads}}
-	\caption{Схема алгоритма ZBufferWithThreads}
+	\center{\includegraphics[width=0.5\linewidth]{inc/img/Conveer}}
+	\caption{Схема алгоритма конвейера}
 	\label{ZBufferWithThreads}
 \end{figure}
 
 \newpage
 \section{Вывод}
-В данном разделе были разработаны схемы алгоритмов ZBuffer реализованного стандартным методом и с применением параллеленных вычислений.
+В данном разделе были разработаны схемы главного потока и конвейера.

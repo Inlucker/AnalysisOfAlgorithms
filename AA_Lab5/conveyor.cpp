@@ -1,4 +1,4 @@
-#include "conveyor.h"
+    #include "conveyor.h"
 
 //using namespace std;
 //using namespace chrono;
@@ -26,11 +26,11 @@ void Conveyor::process(vector<Request> &requests)
 
     for (size_t i = 0; i < requests.size(); i++)
     {
-        //m1.lock();
+        m1.lock();
         requests[i].push_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue1.push(requests[i]);
         //cout << "Pushed " << i+1 << " request into queue1" << endl;
-        //m1.unlock();
+        m1.unlock();
     }
 
     t1.join();
