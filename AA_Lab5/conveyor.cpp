@@ -214,14 +214,18 @@ void Conveyor::thirdBent()
         //cout << "Done " << cur_n+1 << " request" << endl;
 
         //debug print
-        /*cout << r.str << endl;
+        /*cout << "Request #" << cur_n+1 << ":" << endl;
+        cout << "str = " << r.str << endl;
+        cout << "words = ";
         for (auto& w : r.words)
             cout << w << "; ";
         cout << endl;
+        cout << "polinoms = ";
         for (auto& p : r.polinoms)
             cout << p << "; ";
         cout << endl;
-        cout << r.longest_polinom << endl;*/
+        cout << "longest_polinom = " << r.longest_polinom << endl;
+        cout << endl;*/
 
         /*cout << "Request #" << cur_n+1 << ":" << endl;
         cout << "push_time1: " << r.push_time1 << " s" << endl;
