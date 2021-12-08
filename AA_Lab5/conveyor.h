@@ -14,7 +14,6 @@
 //#include "timer.h"
 
 //using namespace std;
-
 //using namespace chrono;
 
 typedef std::chrono::high_resolution_clock Clock;
