@@ -3,12 +3,12 @@
 //using namespace std;
 //using namespace chrono;
 
-Request::Request(string _str)
+Request::Request(std::string _str)
 {
     str = _str;
 }
 
-/*Request::Request(string str, int task_num, clock_t time)
+/*Request::Request(std::string str, int task_num, clock_t time)
 {
     this->str = str;
     this->task_num = task_num;
@@ -20,7 +20,7 @@ Request::Request(string _str)
 void Request::getWords()
 {
     Sleep(1);
-    string tmp = "";
+    std::string tmp = "";
     for (auto& c : str)
     {
         if (c != ' ')

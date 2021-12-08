@@ -1,4 +1,4 @@
-    #include "conveyor.h"
+#include "conveyor.h"
 
 //using namespace std;
 //using namespace chrono;
@@ -11,7 +11,7 @@ Conveyor::Conveyor(int _n)
     n = _n;
 }
 
-void Conveyor::process(vector<Request> &requests)
+void Conveyor::process(std::vector<Request> &requests)
 {
     //start_time = clock();
 
@@ -20,14 +20,14 @@ void Conveyor::process(vector<Request> &requests)
 
     //cout << "Start time: " << double(start_time) / CLOCKS_PER_SEC << endl;
 
-    thread t1(&Conveyor::firstBent, this);
-    thread t2(&Conveyor::secondBent, this);
-    thread t3(&Conveyor::thirdBent, this);
+    std::thread t1(&Conveyor::firstBent, this);
+    std::thread t2(&Conveyor::secondBent, this);
+    std::thread t3(&Conveyor::thirdBent, this);
 
     for (size_t i = 0; i < requests.size(); i++)
     {
         m1.lock();
-        requests[i].push_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        requests[i].push_time1 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue1.push(requests[i]);
         //cout << "Pushed " << i+1 << " request into queue1" << endl;
         m1.unlock();
@@ -39,20 +39,20 @@ void Conveyor::process(vector<Request> &requests)
     t3.join();
 }
 
-vector<Request> Conveyor::getRes()
+std::vector<Request> Conveyor::getRes()
 {
     return res;
 }
 
-/*clock_t Conveyor::process(vector<string> objvec)
+/*clock_t Conveyor::process(std::vector<std::string> objvec)
 {
     timer.set_size(n);
 
     start_t = clock();
 
-    thread t1(&Conveyor::first_conv, this);
-    thread t2(&Conveyor::second_conv, this);
-    thread t3(&Conveyor::third_conv, this);
+    std::thread t1(&Conveyor::first_conv, this);
+    std::thread t2(&Conveyor::second_conv, this);
+    std::thread t3(&Conveyor::third_conv, this);
 
     for (int i = 0; i < n; i++) {
         m1.lock();
@@ -68,11 +68,11 @@ vector<Request> Conveyor::getRes()
 }*/
 
 
-vector<string> Conveyor::getWords(string str)
+std::vector<std::string> Conveyor::getWords(std::string str)
 {
-    vector<string> rez;
+    std::vector<std::string> rez;
 
-    string tmp = "";
+    std::string tmp = "";
     for (auto& c : str)
     {
         if (c != ' ')
@@ -89,9 +89,9 @@ vector<string> Conveyor::getWords(string str)
     return rez;
 }
 
-vector<string> Conveyor::getPolinoms(vector<string> words)
+std::vector<std::string> Conveyor::getPolinoms(std::vector<std::string> words)
 {
-    vector<string> rez;
+    std::vector<std::string> rez;
 
     for (auto& w : words)
     {
@@ -111,11 +111,11 @@ vector<string> Conveyor::getPolinoms(vector<string> words)
     return rez;
 }
 
-string Conveyor::getLongestPolinom(vector<string> polinoms)
+std::string Conveyor::getLongestPolinom(std::vector<std::string> polinoms)
 {
     if (polinoms.size() > 0)
     {
-        string rez = polinoms[0];
+        std::string rez = polinoms[0];
 
         for (auto& p : polinoms)
         {
@@ -146,13 +146,13 @@ void Conveyor::firstBent()
         }
         Request r = queue1.front();
         queue1.pop();
-        r.pop_time1 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time1 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue1" << endl;
         m1.unlock();
         //r.words = getWords(r.str);
         r.getWords();
         m2.lock();
-        r.push_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.push_time2 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue2.push(r);
         //cout << "Pushed " << cur_n+1 << " request into queue2" << endl;
         m2.unlock();
@@ -176,13 +176,13 @@ void Conveyor::secondBent()
         }
         Request r = queue2.front();
         queue2.pop();
-        r.pop_time2 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time2 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue2" << endl;
         m2.unlock();
         //r.polinoms = getPolinoms(r.words);
         r.getPolinoms();
         m3.lock();
-        r.push_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.push_time3 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         queue3.push(r);
         //cout << "Pushed " << cur_n+1 << " request into queue3" << endl;
         m3.unlock();
@@ -206,12 +206,12 @@ void Conveyor::thirdBent()
         }
         Request r = queue3.front();
         queue3.pop();
-        r.pop_time3 = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.pop_time3 = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Poped " << cur_n+1 << " request from queue3" << endl;
         m3.unlock();
         //r.longest_polinom = getLongestPolinom(r.polinoms);
         r.getLongestPolinom();
-        r.processing_time = duration_cast<nanoseconds>(Clock::now() - start_time).count()/1000000000.;
+        r.processing_time = std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - start_time).count()/1000000000.;
         //cout << "Done " << cur_n+1 << " request" << endl;
 
         //debug print

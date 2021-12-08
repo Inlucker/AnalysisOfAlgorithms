@@ -7,17 +7,17 @@
 #include <ctime>
 #include <chrono>
 
-using namespace std;
+//using namespace std;
 
-using namespace chrono;
+//using namespace chrono;
 
-typedef high_resolution_clock Clock;
+typedef std::chrono::high_resolution_clock Clock;
 
 class Request
 {
 public:
-    Request(string _str);
-    //Request(string _str, int _task_num, clock_t _time);
+    Request(std::string _str);
+    //Request(std::string _str, int _task_num, clock_t _time);
 
     void getWords();
     void getPolinoms();
@@ -37,11 +37,11 @@ public:
 
     double own_proc_time = -1;
 //private:
-    string str;
+    std::string str;
 
-    vector<string> words;
-    vector<string> polinoms;
-    string longest_polinom = "";
+    std::vector<std::string> words;
+    std::vector<std::string> polinoms;
+    std::string longest_polinom = "";
 
     //ADDED
     /*int task_num;

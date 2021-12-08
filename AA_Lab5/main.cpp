@@ -9,16 +9,17 @@
 #include "conveyor.h"
 //#include "tools.h"
 
-using namespace std;
+//using namespace std;
+//using namespace chrono;
 
-using namespace chrono;
+typedef std::chrono::high_resolution_clock Clock;
 
-vector<string> getWords(string str)
+std::vector<std::string> getWords(std::string str)
 {
     Sleep(1);
-    vector<string> rez;
+    std::vector<std::string> rez;
 
-    string tmp = "";
+    std::string tmp = "";
     for (auto& c : str)
     {
         if (c != ' ')
@@ -35,10 +36,10 @@ vector<string> getWords(string str)
     return rez;
 }
 
-vector<string> getPolinoms(vector<string> words)
+std::vector<std::string> getPolinoms(std::vector<std::string> words)
 {
     Sleep(1);
-    vector<string> rez;
+    std::vector<std::string> rez;
 
     for (auto& w : words)
     {
@@ -58,12 +59,12 @@ vector<string> getPolinoms(vector<string> words)
     return rez;
 }
 
-string getLongestPolinom(vector<string> polinoms)
+std::string getLongestPolinom(std::vector<std::string> polinoms)
 {
     Sleep(1);
     if (polinoms.size() > 0)
     {
-        string rez = polinoms[0];
+        std::string rez = polinoms[0];
 
         for (auto& p : polinoms)
         {
@@ -79,15 +80,15 @@ string getLongestPolinom(vector<string> polinoms)
     }
 }
 
-string getRes(string str)
+std::string getRes(std::string str)
 {
     return (getLongestPolinom(getPolinoms(getWords(str))));
 }
 
 
-string genWord(size_t size)
+std::string genWord(size_t size)
 {
-    string rez = string(size, '0');
+    std::string rez = std::string(size, '0');
     for (size_t i = 0; i < size; i++)
     {
         rez[i] = rand()%26 + 97;
@@ -95,9 +96,9 @@ string genWord(size_t size)
     return rez;
 }
 
-string genStr(size_t max_words_size, size_t words_number)
+std::string genStr(size_t max_words_size, size_t words_number)
 {
-    string rez = "";
+    std::string rez = "";
     for (size_t i = 0; i < words_number; i++)
     {
         rez += genWord(rand() % max_words_size + 1) + " ";
@@ -110,31 +111,31 @@ string genStr(size_t max_words_size, size_t words_number)
 int main()
 {
     srand(time(0));
-    //cout << "Hello World!" << endl;
+    //std::cout << "Hello World!" << std::endl;
 
-    vector<Request> requests;// = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
+    std::vector<Request> requests;// = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls"), Request("test lol 23323232 s sss ll 233232332 sls sll lls"), Request("te str")};
     for (int i = 0; i < N; i++)
     {
         requests.push_back(genStr(10, 10000));
     }
-    //vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
+    //std::vector<Request> requests = {Request("test lol 23323232 s sss ll 2332323322 sls sll lls")};
 
     Conveyor c(requests.size());
 
-    time_point<high_resolution_clock> start = Clock::now();
+    std::chrono::time_point<Clock> start = Clock::now();
     //double start = getCPUTime();
     c.process(requests);
     //double end = getCPUTime();
-    //cout << "Conveyor time: " << end - start << " s" << endl;
-    time_point<high_resolution_clock> end = Clock::now();
-    nanoseconds diff = duration_cast<nanoseconds>(end - start);
-    cout << "Conveyor time:" << endl;
-    cout << diff.count() << " ns\n";
-    cout << diff.count() / 1000000. << " ms\n";
-    cout << diff.count() / 1000000000. << " s\n";
-    cout << endl;
+    //std::cout << "Conveyor time: " << end - start << " s" << std::endl;
+    std::chrono::time_point<Clock> end = Clock::now();
+    std::chrono::nanoseconds diff = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "Conveyor time:" << std::endl;
+    std::cout << diff.count() << " ns\n";
+    std::cout << diff.count() / 1000000. << " ms\n";
+    std::cout << diff.count() / 1000000000. << " s\n";
+    std::cout << std::endl;
 
-    vector<Request> res = c.getRes();
+    std::vector<Request> res = c.getRes();
 
     res[0].calculateTimes();
     double min_queue_time = res[0].queue_time1;
@@ -160,7 +161,7 @@ int main()
     for (size_t i = 0; i < res.size(); i++)
     {
         res[i].calculateTimes();
-        printf("|%8d | %10f | %10f | %10f | %10f | %10f | %10f | %10f |\n",
+        printf("|%8lld | %10f | %10f | %10f | %10f | %10f | %10f | %10f |\n",
                i+1, res[i].push_time1, res[i].pop_time1, res[i].push_time2, res[i].pop_time2, res[i].push_time3, res[i].pop_time3, res[i].processing_time);
         //min
         if (res[i].queue_time1 < min_queue_time)
@@ -197,7 +198,7 @@ int main()
         avg_queue2_time += res[i].queue_time2;
         avg_queue3_time += res[i].queue_time3;
 
-        //cout << res[i].own_proc_time << endl;
+        //std::cout << res[i].own_proc_time << std::endl;
     }
     avg_queue_time /= times_n;
     avg_proc_time /= times_n2;
@@ -209,63 +210,63 @@ int main()
     avg_queue3_time /= times_n2;
     printf("|---------|------------|------------|------------|------------|------------|------------|------------|\n");
 
-    cout << endl;
-    cout << "min_queue_time = " << min_queue_time << endl;
-    cout << "max_queue_time = " << max_queue_time << endl;
-    cout << "avg_queue_time = " << avg_queue_time << endl;
-    cout << endl;
-    cout << "min_proc_time =  " << min_proc_time << endl;
-    cout << "max_proc_time =  " << max_proc_time << endl;
-    cout << "avg_proc_time =  " << avg_proc_time << endl;
-    cout << endl;
-    cout << "avg_proc1_time =  " << avg_proc1_time << endl;
-    cout << "avg_proc2_time =  " << avg_proc2_time << endl;
-    cout << "avg_proc3_time =  " << avg_proc3_time << endl;
-    cout << endl;
-    cout << "avg_queue1_time =  " << avg_queue1_time << endl;
-    cout << "avg_queue2_time =  " << avg_queue2_time << endl;
-    cout << "avg_queue3_time =  " << avg_queue3_time << endl;
-    cout << endl;
+    std::cout << std::endl;
+    std::cout << "min_queue_time = " << min_queue_time << std::endl;
+    std::cout << "max_queue_time = " << max_queue_time << std::endl;
+    std::cout << "avg_queue_time = " << avg_queue_time << std::endl;
+    std::cout << std::endl;
+    std::cout << "min_proc_time =  " << min_proc_time << std::endl;
+    std::cout << "max_proc_time =  " << max_proc_time << std::endl;
+    std::cout << "avg_proc_time =  " << avg_proc_time << std::endl;
+    std::cout << std::endl;
+    std::cout << "avg_proc1_time =  " << avg_proc1_time << std::endl;
+    std::cout << "avg_proc2_time =  " << avg_proc2_time << std::endl;
+    std::cout << "avg_proc3_time =  " << avg_proc3_time << std::endl;
+    std::cout << std::endl;
+    std::cout << "avg_queue1_time =  " << avg_queue1_time << std::endl;
+    std::cout << "avg_queue2_time =  " << avg_queue2_time << std::endl;
+    std::cout << "avg_queue3_time =  " << avg_queue3_time << std::endl;
+    std::cout << std::endl;
 
     start = Clock::now();
     //start = getCPUTime();
     //for (int i = 0; i < N; i++)
-        //string tmp_res = getRes(requests[i].str);
+        //std::string tmp_res = getRes(requests[i].str);
     //int i = 1;
     for (auto& r : requests)
     {
-        //cout << "Request #" << i++ << ":" << endl;
-        //cout << "startTime: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
+        //std::cout << "Request #" << i++ << ":" << std::endl;
+        //std::cout << "startTime: " << std::chrono::duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << std::endl;
         r.getWords();
-        //cout << "getWords: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
+        //std::cout << "getWords: " << std::chrono::duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << std::endl;
         r.getPolinoms();
-        //cout << "getPolinoms:  "<< duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
+        //std::cout << "getPolinoms:  "<< std::chrono::duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << std::endl;
         r.getLongestPolinom();
-        //cout << "getLongestPolinom: " << duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << endl;
-        //cout << endl;
-        /*vector<string> tmp_words = getWords(r.str);
-        vector<string> tmp_polinoms = getPolinoms(tmp_words);
-        string longest_polinom = getLongestPolinom(tmp_polinoms);*/
-        //string tmp_res = getRes(r.str);
+        //std::cout << "getLongestPolinom: " << std::chrono::duration_cast<nanoseconds>(Clock::now() - start).count()/1000000000. << " s" << std::endl;
+        //std::cout << std::endl;
+        /*std::vector<std::string> tmp_words = getWords(r.str);
+        std::vector<std::string> tmp_polinoms = getPolinoms(tmp_words);
+        std::string longest_polinom = getLongestPolinom(tmp_polinoms);*/
+        //std::string tmp_res = getRes(r.str);
     }
     //end = getCPUTime();
-    //cout << "Without conveyor time: " << end - start << " s" << endl;
+    //std::cout << "Without conveyor time: " << end - start << " s" << std::endl;
     end = Clock::now();
-    diff = duration_cast<nanoseconds>(end - start);
-    cout << "Without conveyor time:" << endl;
-    cout << diff.count() << " ns\n";
-    cout << diff.count() / 1000000. << " ms\n";
-    cout << diff.count() / 1000000000. << " s\n";
-    cout << endl;
+    diff = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "Without conveyor time:" << std::endl;
+    std::cout << diff.count() << " ns\n";
+    std::cout << diff.count() / 1000000. << " ms\n";
+    std::cout << diff.count() / 1000000000. << " s\n";
+    std::cout << std::endl;
 
     //ADDED
-    /*vector<Request> res;
-    vector<string> objvec;
+    /*std::vector<Request> res;
+    std::vector<std::string> objvec;
     objvec.resize(N);
 
     for (int i = 0; i < N; i++)
     {
-        string s = genStr(300, 1000);
+        std::string s = genStr(300, 1000);
         objvec[i] = (s);
     }
 

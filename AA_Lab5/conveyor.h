@@ -13,11 +13,11 @@
 
 //#include "timer.h"
 
-using namespace std;
+//using namespace std;
 
-using namespace chrono;
+//using namespace chrono;
 
-typedef high_resolution_clock Clock;
+typedef std::chrono::high_resolution_clock Clock;
 
 #include "request.h"
 
@@ -26,15 +26,15 @@ class Conveyor
 public:
     Conveyor(int n);
 
-    void process(vector<Request> &requests);
-    //clock_t process(vector<string> objvec);
+    void process(std::vector<Request> &requests);
+    //clock_t process(std::vector<std::string> objvec);
 
-    vector<Request> getRes();
+    std::vector<Request> getRes();
 
 private:
-    vector<string> getWords(string str);
-    vector<string> getPolinoms(vector<string> words);
-    string getLongestPolinom(vector<string> polinoms);
+    std::vector<std::string> getWords(std::string str);
+    std::vector<std::string> getPolinoms(std::vector<std::string> words);
+    std::string getLongestPolinom(std::vector<std::string> polinoms);
 
     void firstBent();
     void secondBent();
@@ -44,22 +44,22 @@ private:
     void second_conv();
     void third_conv();*/
 
-    queue<Request> queue1;
-    queue<Request> queue2;
-    queue<Request> queue3;
+    std::queue<Request> queue1;
+    std::queue<Request> queue2;
+    std::queue<Request> queue3;
 
 private:
-    mutex m1, m2, m3, m4;
+    std::mutex m1, m2, m3, m4;
     int n;
-    time_point<high_resolution_clock> start_time;
-    vector<Request> res;
+    std::chrono::time_point<Clock> start_time;
+    std::vector<Request> res;
 
     //ADDED
     /*Timer timer;
     clock_t start_t;
-    mutex resm;
+    std::mutex resm;
 
-    vector<Request> res;*/
+    std::vector<Request> res;*/
 };
 
 #endif // CONVEYOR_H
