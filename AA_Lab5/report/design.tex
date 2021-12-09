@@ -3,7 +3,7 @@
 
 \section{Схемы алгоритмов}
 Схема алгоритма работы главного потока представлена  на рисунке \ref{ZBufferAlg}.
-Схема алгоритма работы ленты конвейера представлена  на рисунке \ref{ZBufferWithThreads}. Здесь представлен общий вид схемы, а под обработкой заявки понимаются разные алгоритмы. Лента 1 выполняет алгоритм, представленный на рис. %\ref, лента 2 -- алгоритм, представленный на рис. \ref, лента 3 -- алгоритм, представленный на рис. \ref.  
+Схема алгоритма работы ленты конвейера представлена  на рисунке \ref{ZBufferWithThreads}. Здесь представлен общий вид схемы, а под обработкой заявки понимаются разные алгоритмы. Лента 1 выполняет алгоритм, представленный на рис. \ref{getWords}, лента 2 -- алгоритм, представленный на рис. \ref{getPolinoms}%, лента 3 -- алгоритм, представленный на рис. \ref.  
 
 \begin{figure}
 	\center{\includegraphics[width=0.8\linewidth]{inc/img/MainThread}}
@@ -12,9 +12,21 @@
 \end{figure}
 
 \begin{figure}
-	\center{\includegraphics[width=0.5\linewidth]{inc/img/Conveer}}
+	\center{\includegraphics[width=0.7\linewidth]{inc/img/Conveer}}
 	\caption{Обобщенная схема алгоритма работы ленты конвейера}
 	\label{ZBufferWithThreads}
+\end{figure}
+
+\begin{figure}
+	\center{\includegraphics[width=1\linewidth]{inc/img/getWords}}
+	\caption{Схема алгоритма разбиения строки на слова}
+	\label{getWords}
+\end{figure}
+
+\begin{figure}
+	\center{\includegraphics[width=1\linewidth]{inc/img/getWords}}
+	\caption{Схема алгоритма нахождения всех полиндромов из полученных слов}
+	\label{getPolinoms}
 \end{figure}
 
 \newpage
