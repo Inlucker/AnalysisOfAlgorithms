@@ -95,10 +95,8 @@ pair<int, vector<int>> Ant(Matrix D, const int Tmax, const double alpha, const d
 
     Matrix Attr(M, M); //привлекательность
     get_attractiveness(Attr, D);
-
     Matrix Teta(M, M, teta_start); //феромоны
     Matrix Delta_Teta(M, M); //феромоны на тек шаге
-
     int Lmin = -1; //длина кратчайшего маршрута
     vector<int> Lp; // кратчайший маршрут
     vector<double> P(M, 0.0); //вероятности
@@ -150,10 +148,8 @@ pair<int, vector<int>> Ant(Matrix D, const int Tmax, const double alpha, const d
                 int new_town = not_visited[best_p];
                 cur_path.push_back(new_town);
                 cur_path_length += D[i][new_town];
-
                 //обновим феромон на этом участке
                 Delta_Teta[i][new_town] += Q/cur_path_length;
-
                 i = new_town; // дальше продолжим путь из этого города
                 not_visited.erase(not_visited.begin()+best_p);
             }
