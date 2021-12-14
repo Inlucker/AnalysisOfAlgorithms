@@ -192,7 +192,7 @@ int main()
     //cout << "Hello World!" << endl;
 
 
-    /*setbuf(stdout, NULL);
+    setbuf(stdout, NULL);
     Matrix M(12,12);
     M.make_rand();
     M.print();
@@ -214,9 +214,9 @@ int main()
                 printf("%5lf, %5lf, %5d, %10lf\n",ro, alpha, t, dif);
             }
         }
-    }*/
+    }
 
-    /*
+
     FILE *f = fopen("time.txt", "w");
     fprintf(f,"%5s,%10s,%10s,%10s\n", "N" , "1", "2", "-");
     printf("%5s,%10s,%10s,%10s\n", "N" , "1", "2", "-");
@@ -255,18 +255,18 @@ int main()
         }
         printf("%10d\n", time/repeat);
         fprintf(f,"%10d\n", time/repeat);
-    }*/
+    }
 
-    double m[] = {0,1,1,1, 1,
+    /*double m[] = {0,1,1,1, 1,
                  1,0,1,1, 1,
                  1,1,0,2, 1,
                  1,1,2,0, 1,
-                 1,1,1,1, 0};
+                 1,1,1,1, 0};*/
    /* double m [] = {0, 2, 1, 2,
                   2, 0, 2, 3,
                   1, 2, 0, 2,
                   2, 3, 2, 0} */
-    Matrix mat(5,5);
+    /*Matrix mat(5,5);
     mat.fill_array(m);
     mat.print();
 
@@ -275,7 +275,7 @@ int main()
     print_res(results);
     pair<int, vector<int>> res = Ant(mat, 350, 0.75, 0.25);
     printf("Ant ");
-    print_res(res);
+    print_res(res);*/
 
 
     return 0;
